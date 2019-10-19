@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>NigthApp</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+   <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet"> 
+    <script>
+    </script>
+</head>
+<body>
+    <header>
+       <!-- barra de navegación -->
+        <div class="container">
+           <div class="row">
+               <div class="col-12">
+                   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <a class="navbar-brand" href="#">NigthApp</a>
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                         <span class="navbar-toggler-icon"></span>
+                     </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav bg-inverse">
+                          <li class="nav-item">
+                               <a href="index.html" class="nav-link active">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Ayuda</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav ml-auto">
+                          <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" href="#modal-login"><span class="fas fa-user"></span>Ingresar</a>
+                          </li>
+                        </ul>
+                       </div>
+                   </nav>
+                    
+               </div>
+           </div>
+         <!-- fin de barra de navegación -->
+            <!-- modal login-->
+           <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                 <div class="modal-content">
+                     <div class="modal-body">
+                         <div class="row">
+                            <div class="col">
+                                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                            </div>
+                             
+                         </div>
+                        <div class="row">
+                        <div class="col text-center p-4">
+                           <form  action="" method="">
+                                <div class="form-group" id="user-group">
+                                    <input type="text" class="form-control" placeholder="Nombre de usuario" name="username"/>
+                                </div>
+                                <div class="form-group" id="contrasena-group">
+                                    <input type="password" class="form-control" placeholder="Contrasena" name="password"/>
+                                </div>
+                                <button type="submit" class="btn  btn-dark"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                            </form>
+                            
+                        </div>
+                         
+                     </div>
+                        <div class="row">
+                            <div class="col text-center p-1">
+						        <a href="recuperar_contraseña">Olvidé la contraseña</a>
+					        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center p-1">
+						        <a href="registro.html">Registrarte</a>
+					        </div>
+                        </div>
+                         
+                     </div>
+                     
+                 </div>                  
+              </div>
+               
+           </div>
+           <!-- fin modal login -->
+    
+        </div>
+        
+    </header>
+    
+     <div class="container">
+            <section class="main row">
+                <div class="col-xs-12 col-sm-8 col-md-9">
+                    <h3>Registra tu local</h3>
+                    <hr>
+                    <form action="">
+                        <div class="form-group row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <label>Nombre del local
+                                    <br><input class="form-control " type="text" id="nombre_local">
+                                </label>
+                            </div>            
+                            <div class="col-xs-12 col-sm-12 col-md-12"> <hr>
+                                <label>Localidad
+                                <br><Select name="lugar" class="form-control" id="lugar" placeholder="Ubicación dle local">
+                                    <option value="caba">CABA</option>
+                                    <option value="florenciovarela">Florencio Varela</option>
+                                    <option value="laplata">La Plata</option>
+                                    <option value="quilmes">Quilmes</option>
+                                    </Select>
+                                </label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12"> 
+                                <label>Dirección del local
+                                    <br><input class="form-control " type="text" id="direccion_local" placeholder="123 e/ 59 y 52"> 
+                                </label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12"><hr>
+                                    <label> Fotos del local<br>
+                                         <input name="uploadedfile" type="file" /><br>
+                                    </label>  
+                                </div>
+                           <div class="col-xs-12 col-sm-12 col-md-12">
+                                <label>Descripción del local
+                                    <br><textarea class="form-control " name="descripcion" maxlength="1000" placeholder="Escribe la descripción del local aqui." cols= "50"></textarea>
+                                </label>
+                           </div>
+                           
+                            <div class="col-md-12">
+                                <p>Categorías</p>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-4"> <br>
+                                <div class="form-check-label">
+                                    <label class="form-check-label">
+                                        <input class="form-control " type="checkbox" name="categoria_bar" id="categoria_bar" class="form-check-input mr-2">Bares
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4">  <br>     
+                                <div class="form-check-label">
+                                    <label  class="form-check-label">
+                                        <input class="form-control " type="checkbox" name="categoria_restaurante" id="categoria_restaurante" class="form-check-input mr-2">Restaurantes
+                                    </label>                      
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4"> <br>
+                                <div class="form-check-label">
+                                    <label  class="form-check-label">
+                                         <input class="form-control " type="checkbox" name="categoria_balialble" id="categoria_bar" class="form-check-input mr-2">Bailables
+                                    </label>                      
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn  btn-dark" type="submit">Cargar local</button>
+                        
+                    </form>
+                </div>
+            </section>
+        </div>
+        <br>
+    <footer>
+        <div class="container bg-dark text-light text-center p-2">
+            <p>Wed creada para aprobar Proyecto</p>
+        </div>
+    </footer>
+	
+	
+	
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

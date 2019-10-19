@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>NightApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <script>
+    </script>
+</head>
+
+<body>
+    <header>
+        <!-- barra de navegación -->
+        <div class="container col-8">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                        <a class="navbar-brand" href="#">NightApp</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav bg-inverse">
+                                <li class="nav-item">
+                                    <a href="index.html" class="nav-link">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="index.html" class="nav-link">Ayuda</a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="modal" href="#modal-login"><i
+                                            class="mr-3 fa fa-user"></i></i>Ingresar</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+            <!-- fin de barra de navegación -->
+            <!-- modal login-->
+            <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login"
+                aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col">
+                                    <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col text-center p-4">
+                                    <form action="" method="">
+                                        <div class="form-group" id="user-group">
+                                            <input type="text" class="form-control" placeholder="Nombre de usuario"
+                                                name="username" />
+                                        </div>
+                                        <div class="form-group" id="contrasena-group">
+                                            <input type="password" class="form-control" placeholder="Contrasena"
+                                                name="password" />
+                                        </div>
+                                        <button type="submit" class="btn  btn-dark"><i class="fas fa-sign-in-alt"></i>
+                                            Ingresar </button>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col text-center p-1">
+                                    <a href="recuperar_contraseña">Olvidé la contraseña</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center p-1">
+                                    <a href="registro.html">Registrarte</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- fin modal login -->
+        </div>
+
+    </header>
+
+    <div class="container col-8">
+        <section class="row mt-3">
+            <!-- columna main donde habrá una columna para los fitros y otra para los resultados de la consulta -->
+            <div class="col-xs-12 col-sm-8 col-md-9">
+                <div class="row">
+                    <!-- columna de filtros -->
+                    <div class="card col-3" style="padding:0">
+                        <article class="card-group-item">
+                            <header class="card-header">
+                                <h6 class="title">Ubicacion</h6>
+                            </header>
+                            <div class="filter-content collapse show" id="collapse22">
+                                <div class="card-body">
+                                    <form class="pb-3">
+                                        <div class="input-group">
+                                            <input class="form-control" placeholder="Ciudad/Localidad" type="text">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button"><i
+                                                        class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <ul class="list-unstyled list-lg">
+                                        <li><a href="#">Quilmes <span
+                                                    class="float-right badge badge-light round">142</span> </a></li>
+                                        <li><a href="#">Lanus <span
+                                                    class="float-right badge badge-light round">55</span> </a></li>
+                                        <li><a href="#">Avellaneda <span
+                                                    class="float-right badge badge-light round">32</span> </a></li>
+                                        <li><a href="#">Don Bosco <span
+                                                    class="float-right badge badge-light round">12</span> </a></li>
+                                    </ul>
+                                </div> <!-- card-body.// -->
+                            </div> <!-- collapse .// -->
+                        </article>
+                        <article class="card-group-item card">
+                            <header class="card-header">
+                                <h6 class="title"> Tipo </h6>
+                            </header>
+                            <div class="filter-content">
+                                <div class="card-body" id="filtro_Categorias" />
+                            </div>
+                        </article>
+                        <article class="card-group-item card">
+                            <header class="card-header">
+                                <h6 class="title"> Servicios </h6>
+                            </header>
+                            <div class="filter-content">
+                                <div class="card-body" id="filtro_Servicios" />
+                            </div>
+                        </article>
+
+                        <article class="card-group-item card">
+                            <header class="card-header">
+                                <h6 class="title"> Menu </h6>
+                            </header>
+                            <div class="filter-content">
+                                <div class="card-body" id="filtro_Menus" />
+                            </div>
+                        </article>
+                    </div> <!-- card.// -->
+
+
+
+
+                    <!-- fin de columna de filtros -->
+                    <!-- columna de consultas -->
+                    <div class="col-9 columna_consultas p-1" id="mainSection">
+                        <select>
+                            <option value="nombre">Ordenar por nombre</option>
+                            <option value="cercania">Ordenar por cercanía</option>
+                            <option value="calificacion">Ordenar por calificación</option>
+                        </select>
+                        <div id="establecimientos">
+                        </div>
+
+                        <nav class="mt-3">
+                            <ul class="pagination d-flex justify-content-center">
+                                <li class="page-item "><a href="#" class="page-link"><span aria-hidden="true">&laquo;
+                                            Anterior</span></a></li>
+                                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                                <li class="page-item "><a href="#" class="page-link">2</a></li>
+                                <li class="page-item "><a href="#" class="page-link">3</a></li>
+                                <li class="page-item "><a href="#" class="page-link">4</a></li>
+                                <li class="page-item "><a href="#" class="page-link"><span aria-hidden="true">Siguiente
+                                            &raquo;</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- fin de columna de consultas -->
+                </div>
+            </div>
+            <!-- columna lateral para publicidad -->
+            <aside class="col-xs-12 col-sm-4 col-md-3 p-2">
+                <div class="card  p-3">
+                    <img src="img/beer.jpg" class="card-img-top img-fluid" alt="">
+                    <div class="card-block">
+                        <h3 class="card-title">Beer</h3>
+                        <p class="card-text">Cervecería artesanal. </p>
+                    </div>
+                </div>
+                <br>
+                <div class="card  p-3">
+                    <img src="img/Dj.jpg" class="card-img-top img-fluid" alt="">
+                    <div class="card-block">
+                        <h3 class="card-title">Phoenix</h3>
+                        <p class="card-text">Techno - Dance - Electrónica. </p>
+                    </div>
+                </div>
+            </aside>
+            <!-- fin de columna lateral -->
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container bg-dark text-light text-center p-2">
+            <p>Wed creada para aprobar Proyecto</p>
+        </div>
+    </footer>
+
+
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

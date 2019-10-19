@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>NigthApp</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+   <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet"> 
+    <script>
+//        funcion para ocultar campo del formulario
+        function mostrar_bloque(sel) {
+              if (sel.value=="ubicacion"){
+                   $("#distancia_maxima").show();
+              }else{
+
+                   $("#distancia_maxima").hide();
+
+              }
+        }
+
+    </script>
+</head>
+<body>
+    <header>
+       <!-- barra de navegación -->
+        <div class="container">
+           <div class="row">
+               <div class="col-12">
+                   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <a class="navbar-brand" href="#">NigthApp</a>
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                         <span class="navbar-toggler-icon"></span>
+                     </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav bg-inverse">
+                          <li class="nav-item">
+                               <a href="index.html" class="nav-link active">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Ayuda</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav ml-auto">
+                          <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" href="#modal-login"><span class="fas fa-user"></span>Ingresar</a>
+                          </li>
+                        </ul>
+                       </div>
+                   </nav>
+                    
+               </div>
+           </div>
+         <!-- fin de barra de navegación -->
+            <!-- modal login-->
+           <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                 <div class="modal-content">
+                     <div class="modal-body">
+                         <div class="row">
+                            <div class="col">
+                                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                            </div>
+                             
+                         </div>
+                        <div class="row">
+                        <div class="col text-center p-4">
+                           <form  action="" method="">
+                                <div class="form-group" id="user-group">
+                                    <input type="text" class="form-control" placeholder="Nombre de usuario" name="username"/>
+                                </div>
+                                <div class="form-group" id="contrasena-group">
+                                    <input type="password" class="form-control" placeholder="Contrasena" name="password"/>
+                                </div>
+                                <button type="submit" class="btn  btn-dark"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                            </form>
+                            
+                        </div>
+                         
+                     </div>
+                        <div class="row">
+                            <div class="col text-center p-1">
+						        <a href="recuperar_contraseña">Olvidé la contraseña</a>
+					        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center p-1">
+						        <a href="registro.html">Registrarte</a>
+					        </div>
+                        </div>
+                         
+                     </div>
+                     
+                 </div>                  
+              </div>
+               
+           </div>
+           <!-- fin modal login -->
+        <!-- header -->
+                  
+            <div class="row">
+                <div class="col-12  header_NightApp">
+                <p class="header_text">NigthApp</p>
+
+                </div>
+            </div>
+            <!-- fin de header -->
+        </div>
+        
+    </header>
+    
+    
+    <div class="container">
+        <section class="row mt-3">
+           <!-- formulario -->
+            <div class="col-xs-12 col-sm-8 col-md-9">
+               <h3>¡Buscá tu lugar!</h3>
+               <br>
+                <form action="consulta.html">
+                  <div class="form-group row">
+                     <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
+                         <label for="Lugar" class="form_text">Ubicación</label>
+                         <Select name="lugar" class="form-control" id="lugar" onChange="mostrar_bloque(this)">
+                         <option value="none" selected>Selecciona la ubicación</option>
+                         <option value="ubicacion" selected>Ubicación actual</option>
+                         <option value="caba">CABA</option>
+                         <option value="florenciovarela">Florencio Varela</option>
+                         <option value="laplata">La Plata</option>
+                         <option value="quilmes">Quilmes</option>
+                         </Select>
+                     </div>
+                     <div class="col-xs-12 col-sm-12 col-md-6 mb-3"  id="distancia_maxima" >
+                        
+                         <label for="distancia" class="form_text">Distancia máxima</label>
+                      <Select name="distancia" class="form-control" id="distancia">
+                          <option value="CualquierDistancia" selected>Cualquier distancia</option>
+                          <option value="5km">5 km</option>
+                          <option value="5km">10 km</option>
+                          <option value="5km">15 km</option>
+                          <option value="5km">20 km</option>
+                          <option value="5km">50 km</option>
+                      </Select>
+                     </div>    
+                  </div>
+                  <div class="row">
+                      <div class="col-12">
+                          <p class="form_text">Categorías</p>
+                      </div>
+                  </div>
+                  <div class=" form-group row  px-4">
+                     <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="form-check-label">
+                            <label class="block-check">
+                               <img class="img-fluid" src="img/boton_bar.jpg">
+                                <input type="checkbox" name="categoria_bar" id="categoria_bar"><br>Bares
+                                <span class="checkmark"></span>
+                             </label>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-4">                    
+                          <div class="form-check-label">
+                            <label class="block-check">
+                               <img class="img-fluid" src="img/boton_restaurante.jpg">
+                                <input type="checkbox" name="categoria_restaurante" id="categoria_restaurante"><br>Restaurantes
+                                <span class="checkmark"></span>
+                             </label>                      
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-4">
+                    
+                          <div class="form-check-label">
+                            <label class="block-check">
+                               <img class="img-fluid" src="img/boton_discoteca.jpg">
+                                <input type="checkbox" name="categoria_boliche" id="categoria_boliche"><br>Boliches
+                                <span class="checkmark"></span>
+                             </label>                      
+                          </div>
+                      </div>
+                    </div>
+                     <div class=" form-group  row  px-4">
+                      <div class="col">
+                              <button class="btn  btn-dark" type="submit">Buscar</button>
+                          </div>
+                      
+                  </div>
+                  
+                   
+                    
+                </form>
+            </div>
+            <!-- fin de formulario -->
+            <!-- columna lateral -->
+            <aside class="col-xs-12 col-sm-4 col-md-3 p-2">
+               <div class="card  p-3">
+					<img src="img/beer.jpg" class="card-img-top img-fluid" alt="">
+					<div class="card-block">
+						<h3 class="card-title">Beer</h3>
+						<p class="card-text">Cervecería artesanal. </p>
+                   </div>
+				</div>
+              <br>
+               <div class="card  p-3">
+					<img src="img/Dj.jpg" class="card-img-top img-fluid" alt="">
+					<div class="card-block">
+						<h3 class="card-title">Phoenix</h3>
+						<p class="card-text">Techno - Dance - Electrónica. </p>
+                   </div>
+				</div>
+            </aside>
+            <!-- fin de columna lateral -->
+        </section>
+        
+    </div>
+    
+    <footer>
+        <div class="container bg-dark text-light text-center p-2">
+            <p>Wed creada para aprobar Proyecto</p>
+        </div>
+    </footer>
+	
+	
+	
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
