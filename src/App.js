@@ -2,69 +2,33 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Navegador from './components/Navegador.jsx';
+import Registrarse from './components/Registrarse.jsx';
+import Header from './components/Header.jsx';
+import FormLugar from './components/FormLugar.jsx';
+
+
+// <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
 class App extends Component {
+  /*
+  componentDidMount( ){
+    mostrar_bloque(sel) {  
+      if (sel.value=="ubicacion"){
+          $("#distancia_maxima").show();
+      }else{
+          $("#distancia_maxima").hide();
+      }
+    }
+  } */
   render() {
     return (
       <div className="App">
         <Navegador/>
+        <Header/>
+        <FormLugar/>
       </div>
     )
   }
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import Navegador from './components/Navegador';
-class App extends Component {
-  render() {
-    return {
-      <div className="App">
-      <Navegador/>
-      </div>
-    };
-  }
-}
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}*/
-
