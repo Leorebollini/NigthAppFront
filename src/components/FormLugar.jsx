@@ -1,44 +1,47 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+const optionsLugar = [
+    { value: 'ubicacion', label: 'Ubicación actual'},
+    { value: 'caba', label: 'CABA'},
+    { value: 'florenciovarela', label: 'Florencio Varela'},
+    { value: 'laplata', label: 'La Plata'},
+    { value: 'quilmes', label: 'Quilmes'}
+ ];
+const optionsDistacia = [
+    { value: '5km', label: '5 km'},
+    { value: '10km', label: '10 km'},
+    { value: '15km', label: '15 km'},
+    { value: '20km', label: '20 km'},
+    { value: '50km', label: '50 km'}
+];
+
 
 class FormLugar extends Component {
-    constructor(props){
-        super(props);
-        this.state = {value : 'none'};
-        this.optionsState = {value : 'CualquierDistancia'};
-    }
-
+  /*  handleChange(event) {  
+        console.log("hola");
+        if (event.value=="ubicacion"){
+            document.querySelector("#distancia_maxima").show();
+        }else{
+            document.querySelector("#distancia_maxima").hide();
+        }
+      }*/
   render() {
     return (
         <div className = "FormLugar">  
             <div className="container">
-                <div class="col-xs-12 col-sm-8 col-md-9">
+                <div className="col-xs-12 col-sm-8 col-md-9">
                     <h3>¡Buscá tu lugar!</h3>
                     <br></br>
                         <form action="consulta.html">
-                        <div class="form-group row">
-                            <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-                                <label for="Lugar" class="form_text">Ubicación</label>
-                                <Select name="lugar" class="form-control" id="lugar" value={this.state.value} onChange="mostrar_bloque(this)">
-                                <option value="none" selected>Selecciona la ubicación</option>
-                                <option value="ubicacion" selected>Ubicación actual</option>
-                                <option value="caba">CABA</option>
-                                <option value="florenciovarela">Florencio Varela</option>
-                                <option value="laplata">La Plata</option>
-                                <option value="quilmes">Quilmes</option>
-                                </Select>
+                        <div className="form-group row">
+                            <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
+                                <label for="Lugar" className="form_text">Ubicación</label>
+                                <Select name="lugar" options = {optionsLugar}  className="form-control" id="lugar" placeholder= 'Seleccione la ubicación' onChange={this.handleChange}></Select>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-6 mb-3"  id="distancia_maxima" >
+                            <div className="col-xs-12 col-sm-12 col-md-6 mb-3"  id="distancia_maxima" >
                                 
-                                <label for="distancia" class="form_text">Distancia máxima</label>
-                            <Select name="distancia" class="form-control" id="distancia" value={this.optionsState.value}>
-                                <option value="CualquierDistancia" selected>Cualquier distancia</option>
-                                <option value="5km">5 km</option>
-                                <option value="5km">10 km</option>
-                                <option value="5km">15 km</option>
-                                <option value="5km">20 km</option>
-                                <option value="5km">50 km</option>
-                            </Select>
+                                <label for="distancia" className="form_text">Distancia máxima</label>
+                            <Select name="distancia" options = {optionsDistacia}  className="form-control" id="distancia" placeholder= 'Seleccione una distancia'></Select>
                             </div>    
                         </div>
                     </form>
