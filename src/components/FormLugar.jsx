@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+
 const optionsLugar = [
     { value: 'ubicacion', label: 'Ubicación actual'},
     { value: 'caba', label: 'CABA'},
@@ -17,14 +18,6 @@ const optionsDistacia = [
 
 
 class FormLugar extends Component {
-  /*  handleChange(event) {  
-        console.log("hola");
-        if (event.value=="ubicacion"){
-            document.querySelector("#distancia_maxima").show();
-        }else{
-            document.querySelector("#distancia_maxima").hide();
-        }
-      }*/
   render() {
     return (
         <div className = "FormLugar">  

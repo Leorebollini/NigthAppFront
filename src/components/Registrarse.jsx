@@ -21,7 +21,7 @@ class Registrarse extends Component {
                                 <div className="form-group" id="user-group">
                                     <input type="text" className="form-control" placeholder="Nombre de usuario" name="username"/>
                                 </div>
-                                <div class="form-group" id="contrasena-group">
+                                <div className="form-group" id="contrasena-group">
                                     <input type="password" className="form-control" placeholder="Contrasena" name="password"/>
                                 </div>
                                 <button type="submit" className="btn  btn-dark"><i className="fas fa-sign-in-alt"></i>  Ingresar </button>
