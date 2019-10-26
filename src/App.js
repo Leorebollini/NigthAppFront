@@ -24,6 +24,10 @@ class App extends Component {
   render() {
     return (// formulario de registro 
       <div className="Registro">
+        <div className="container">
+
+        
+        <Navegador/>
         <section className="row m-4">
               <div className="col-xs-12 col-sm-8 col-md-9">
               <form action="#">
@@ -96,7 +100,7 @@ class App extends Component {
                   </div>
               </aside>
           </section>
-
+          </div>
       </div>
       
       
