@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Select from 'react-select';
-import Navegador from './components/Navegador.jsx';
+import Navbar from './components/Navbar.jsx'
+import Main from './components/Main.jsx';
+import Registro from './components/Registrarse.jsx'
+import About from './components/About.jsx'
+import {BrowserRouter as Router, Link, Route, Switch, NavLink} from 'react-router-dom';
+
 
 const optionsLugar = [
   { value: 'ubicacion', label: 'Ubicación actual'},
@@ -17,74 +21,18 @@ const optionsDistacia = [
   { value: '20km', label: '20 km'},
   { value: '50km', label: '50 km'}
 ];
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Navegador/>
-        <div className="container">
-          <br></br>
-          <div className="col-xs-12 col-sm-8 col-md-9" style={{marginLeft: "8em"}}>
-            <h3>¡Buscá tu lugar!</h3>
-            <br></br>
-            <form action="consulta.html">
-              <div className="form-group row">
-                <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
-                  <label for="Lugar" className="form_text">Ubicación</label>
-                  <Select name="lugar" options = {optionsLugar}  className="form-control" id="lugar" placeholder= 'Seleccione la ubicación' onChange={this.handleChange}></Select>
-                </div>
-                <div className="col-xs-12 col-sm-12 col-md-6 mb-3"  id="distancia_maxima" >                                
-                  <label for="distancia" className="form_text">Distancia máxima</label>
-                  <Select name="distancia" options = {optionsDistacia}  className="form-control" id="distancia" placeholder= 'Seleccione una distancia'></Select>
-                </div>    
-              </div>
-            </form>
-          </div>
-          <div className = "Categorias">  
-            <div className="row">
-              <div className="col-12">
-                  <p className="form_text">Categorías</p>
-              </div>
-            </div>
-            <div className=" form-group row  px-4">
-              <div className="col-xs-12 col-sm-12 col-md-4">
-                <div className="form-check-label">
-                  <label className="block-check">
-                    <img className="img-fluid" src="img/boton_bar.jpg"></img>
-                    <input type="checkbox" name="categoria_bar" id="categoria_bar"/>Bares
-                    <span className="checkmark"></span>
-                  </label>
-                </div>
-              </div>
-              <div className="col-xs-12 col-sm-12 col-md-4">                    
-                <div className="form-check-label">
-                  <label className="block-check">
-                    <img className="img-fluid" src="img/boton_restaurante.jpg"></img>
-                    <input type="checkbox" name="categoria_restaurante" id="categoria_restaurante"/>Restaurantes
-                    <span className="checkmark"></span>
-                  </label>                      
-                </div>
-              </div>
-              <div className="col-xs-12 col-sm-12 col-md-4">
-                <div className="form-check-label">
-                  <label className="block-check">
-                    <img className="img-fluid" src="img/boton_discoteca.jpg"></img>
-                    <input type="checkbox" name="categoria_boliche" id="categoria_boliche"/>Boliches
-                    <span className="checkmark"></span>
-                  </label>                      
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className = "BtnBuscar">  
-            <div className="form-group  row  px-4">
-              <div className="col">
-                <button className="btn btn-dark" type="submit" onClick={<Navegador/>}>Buscar</button>
-              </div>
-            </div>
-          </div> 
+      <Router>
+        <div className="App">
+          <Navbar/>
+          <Route path='/inicio' component={Main}/>
+          <Route path='/registro' component={Registro}/>
+          <Route path='/about' component={About}/>
         </div>
-      </div>
+      </Router>
     )
   }
 }
