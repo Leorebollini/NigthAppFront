@@ -1,33 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Select from 'react-select';
 import Navegador from './components/Navegador.jsx';
 import Registrarse from './components/Registrarse.jsx';
 import { directive } from '@babel/types';
 =======
 import Navbar from './components/Navbar.jsx'
+=======
+import Navbar from './components/Navbar.jsx';
+>>>>>>> f97acde88d14daff2b8430dba3901cc270537b83
 import Main from './components/Main.jsx';
-import Registro from './components/Registrarse.jsx'
-import About from './components/About.jsx'
+import Registro from './components/Registrarse.jsx';
+import About from './components/About.jsx';
+import Sesion from './components/Sesion.jsx'
 import {BrowserRouter as Router, Link, Route, Switch, NavLink} from 'react-router-dom';
 >>>>>>> 814d92860242157dc2a250af6a6ca93ab9cc803e
-
-
-const optionsLugar = [
-  { value: 'ubicacion', label: 'Ubicación actual'},
-  { value: 'caba', label: 'CABA'},
-  { value: 'florenciovarela', label: 'Florencio Varela'},
-  { value: 'laplata', label: 'La Plata'},
-  { value: 'quilmes', label: 'Quilmes'}
-];
-const optionsDistacia = [
-  { value: '5km', label: '5 km'},
-  { value: '10km', label: '10 km'},
-  { value: '15km', label: '15 km'},
-  { value: '20km', label: '20 km'},
-  { value: '50km', label: '50 km'}
-];
 
 class App extends Component {
   render() {
@@ -198,6 +187,7 @@ export default App;
           <Route path='/inicio' component={Main}/>
           <Route path='/registro' component={Registro}/>
           <Route path='/about' component={About}/>
+          <Route path='/iniciosesion' component={Sesion}/>
         </div>
       </Router>
     )
