@@ -5,7 +5,10 @@
   "dependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+<<<<<<< HEAD
     "react-router": "^5.1.2",
+=======
+>>>>>>> 814d92860242157dc2a250af6a6ca93ab9cc803e
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-select": "^3.0.8"

@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+<<<<<<< HEAD
 import Select from 'react-select';
 import Navegador from './components/Navegador.jsx';
 import Registrarse from './components/Registrarse.jsx';
 import { directive } from '@babel/types';
+=======
+import Navbar from './components/Navbar.jsx'
+import Main from './components/Main.jsx';
+import Registro from './components/Registrarse.jsx'
+import About from './components/About.jsx'
+import {BrowserRouter as Router, Link, Route, Switch, NavLink} from 'react-router-dom';
+>>>>>>> 814d92860242157dc2a250af6a6ca93ab9cc803e
 
 
 const optionsLugar = [
@@ -20,8 +28,10 @@ const optionsDistacia = [
   { value: '20km', label: '20 km'},
   { value: '50km', label: '50 km'}
 ];
+
 class App extends Component {
   render() {
+<<<<<<< HEAD
     return (// formulario de registro 
       <div className="Registro">
         <div className="container">
@@ -180,3 +190,19 @@ export default App;
           </div> 
         </div>
       </div>*/
+=======
+    return (
+      <Router>
+        <div className="App">
+          <Navbar/>
+          <Route path='/inicio' component={Main}/>
+          <Route path='/registro' component={Registro}/>
+          <Route path='/about' component={About}/>
+        </div>
+      </Router>
+    )
+  }
+}
+
+export default App;
+>>>>>>> 814d92860242157dc2a250af6a6ca93ab9cc803e
