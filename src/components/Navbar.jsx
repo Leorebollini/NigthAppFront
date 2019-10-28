@@ -22,7 +22,7 @@ class Navbar extends Component {
                                 </ul>
                                 <ul className="nav navbar-nav ml-auto">
                                     <li className="nav-item">
-                                        <a className="nav-link" data-toggle="modal" href="/registro"><span className="fas fa-user"></span>Ingresar</a>
+                                        <a className="nav-link" data-toggle="modal" href="/iniciosesion"><span className="fas fa-user"></span>Ingresar</a>
                                     </li>
                                 </ul>
                             </div>
