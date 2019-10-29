@@ -76,6 +76,11 @@ class Registrarse extends Component {
                     </aside>
                 </section>
             </div>
+            <footer>
+                <div class="container bg-dark text-light p-2">
+                    <p>Wed creada para aprobar Proyecto</p>
+                </div>
+          </footer>
         </div> 
         )
     }
