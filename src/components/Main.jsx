@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Select from 'react-select';
 
 const optionsLugar = [
@@ -29,7 +29,7 @@ const optionsLugar = [
                 <div className="form-group row">
                   <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
                     <label for="Lugar" className="form_text">Ubicación</label>
-                    <Select name="lugar" options = {optionsLugar}  className="form-control" id="lugar" placeholder= 'Seleccione la ubicación' onChange={this.handleChange}></Select>
+                    <Select name="lugar" options = {optionsLugar}  className="form-control" id="lugar" placeholder= 'Seleccione la ubicación'></Select>
                   </div>
                   <div className="col-xs-12 col-sm-12 col-md-6 mb-3"  id="distancia_maxima" >                                
                     <label for="distancia" className="form_text">Distancia máxima</label>
@@ -87,4 +87,4 @@ const optionsLugar = [
     }
   }
 
-export default Main
+export default Main;
