@@ -19,6 +19,9 @@ class Navbar extends Component {
                                     <li className="nav-item">
                                         <a href="/about" className="nav-link">Ayuda</a>
                                     </li>
+                                    <li className="nav-item">
+                                        <a href="/RegistroLocales" className="nav-link">Registrar local</a>
+                                    </li>
                                 </ul>
                                 <ul className="nav navbar-nav ml-auto">
                                     <li className="nav-item">

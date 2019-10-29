@@ -11,7 +11,7 @@ class Sesion extends Component {
                         </button>
                     </div>    
                 </div>
-                <div className="row">
+                <div className="row col-4 offset-4">
                     <div className="col text-center p-4">
                         <form  action="" method="">
                             <div className="form-group" id="user-group">
