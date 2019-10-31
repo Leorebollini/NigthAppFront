@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Select from 'react-select';
+import {Link} from 'react-router-dom';
 
 const optionsLugar = [
     { value: 'ubicacion', label: 'Ubicación actual'},
@@ -15,7 +16,6 @@ const optionsLugar = [
     { value: '20km', label: '20 km'},
     { value: '50km', label: '50 km'}
   ];
-  
   class Main extends Component {
     render() {
       return (
@@ -77,11 +77,18 @@ const optionsLugar = [
             <div className = "BtnBuscar">  
               <div className="form-group  row  px-4">
                 <div className="col">
-                  <button className="btn btn-dark" type="submit">Buscar</button>
+                  <Link to='Consulta'>
+                    <button className="btn btn-dark" type="submit">Buscar</button>
+                  </Link>
                 </div>
               </div>
             </div> 
           </div>
+          <footer>
+            <div class="container bg-dark text-light p-2">
+              <p>Wed creada para aprobar Proyecto</p>
+            </div>
+          </footer>
         </div>
       )
     }
