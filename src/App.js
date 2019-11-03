@@ -7,6 +7,7 @@ import About from './components/About.jsx';
 import Sesion from './components/Sesion.jsx';
 import RegistroLocales from './components/RegistroLocales.jsx';
 import Consulta from './components/Consulta.jsx';
+import Recuperar from  './components/RecuperarC.jsx'
 import LocalP from './components/LocalP.jsx';
 import UsuarioP from './components/UsuarioP.jsx';
 import {BrowserRouter as Router, Link, Route, Switch, NavLink} from 'react-router-dom';
@@ -26,6 +27,7 @@ class App extends Component {
           {/* <Route path='/about' component={LocalP}/> */}
           <Route path='/Consulta' component={Consulta}/>
           <Route path='/UsuarioP' component={UsuarioP}/>
+          <Route path='/recuperarcontraseña' component={Recuperar}/>
         </div>
       </Router>
     )
