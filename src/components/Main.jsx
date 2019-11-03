@@ -17,6 +17,34 @@ const optionsLugar = [
     { value: '50km', label: '50 km'}
   ];
   class Main extends Component {
+
+    handleChecked (event) {
+      
+      if(this.filter.Categorias.includes(event.target.value) && this.filter.Categorias.length>1){
+          let index = this.filter.Categorias.indexOf(event.target.value)
+            if (index > -1) {
+              this.filter.Categorias.splice(index, 1)
+            }
+      }
+      else{
+        this.filter.Categorias.push(event.target.value)
+      }
+      console.dir(this.filter.Categorias)
+      this.setState({update:"true"})
+    
+    
+}
+
+    constructor(props) {
+      super(props);
+      this.handleChecked = this.handleChecked.bind(this); 
+      this.filter = {
+        Categorias: ["Bar","Restaurant","Boliche"]
+      }
+      
+  }
+  
+
     render() {
       return (
         <div className="Main">
@@ -27,13 +55,14 @@ const optionsLugar = [
               <br></br>
               <form action="consulta.html">
                 <div className="form-group row">
+                  
                   <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
-                    <label for="Lugar" className="form_text">Ubicación</label>
-                    <Select name="lugar" options = {optionsLugar}  className="form-control" id="lugar" placeholder= 'Seleccione la ubicación'></Select>
+                    <label htmlFor="Lugar" className="form_text">Ubicación</label>
+                    <Select name="lugar" options = {optionsLugar} id="lugar" placeholder= 'Seleccione la ubicación'></Select>
                   </div>
                   <div className="col-xs-12 col-sm-12 col-md-6 mb-3"  id="distancia_maxima" >                                
-                    <label for="distancia" className="form_text">Distancia máxima</label>
-                    <Select name="distancia" options = {optionsDistacia}  className="form-control" id="distancia" placeholder= 'Seleccione una distancia'></Select>
+                    <label htmlFor="distancia" className="form_text">Distancia máxima</label>
+                    <Select name="distancia" options = {optionsDistacia} id="distancia" placeholder= 'Seleccione una distancia'></Select>
                   </div>    
                 </div>
               </form>
@@ -49,7 +78,7 @@ const optionsLugar = [
                   <div className="form-check-label">
                     <label className="block-check">
                       <img className="img-fluid" src="img/boton_bar.jpg"></img>
-                      <input type="checkbox" name="categoria_bar" id="categoria_bar"/>Bares
+                      <input type="checkbox" checked={this.filter.Categorias.includes("Bar")} name="categoria_bar" id="categoria_bar" onChange={ this.handleChecked } value="Bar"/>Bares
                       <span className="checkmark"></span>
                     </label>
                   </div>
@@ -58,7 +87,7 @@ const optionsLugar = [
                   <div className="form-check-label">
                     <label className="block-check">
                       <img className="img-fluid" src="img/boton_restaurante.jpg"></img>
-                      <input type="checkbox" name="categoria_restaurante" id="categoria_restaurante"/>Restaurantes
+                      <input type="checkbox" checked={this.filter.Categorias.includes("Restaurant")} name="categoria_restaurante" id="categoria_restaurante" value = "Restaurant" onChange={ this.handleChecked }/>Restaurantes
                       <span className="checkmark"></span>
                     </label>                      
                   </div>
@@ -67,7 +96,7 @@ const optionsLugar = [
                   <div className="form-check-label">
                     <label className="block-check">
                       <img className="img-fluid" src="img/boton_discoteca.jpg"></img>
-                      <input type="checkbox" name="categoria_boliche" id="categoria_boliche"/>Boliches
+                      <input type="checkbox"  checked={this.filter.Categorias.includes("Boliche")} name="categoria_boliche" id="categoria_boliche" value = "Boliche" onChange={ this.handleChecked }/>Boliches
                       <span className="checkmark"></span>
                     </label>                      
                   </div>
@@ -77,7 +106,10 @@ const optionsLugar = [
             <div className = "BtnBuscar">  
               <div className="form-group  row  px-4">
                 <div className="col">
-                  <Link to='Consulta'>
+                  <Link to={{
+                    pathname:"/Consulta",
+                    initialFilter :this.filter
+                  }}>
                     <button className="btn btn-dark" type="submit">Buscar</button>
                   </Link>
                 </div>
