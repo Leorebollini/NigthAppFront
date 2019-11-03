@@ -10,7 +10,7 @@ class Consulta extends Component{
           .then((data) => {
             this.filter.Menus = data.map(x=>x.Nombre)
             this.setState({ menus: data })
-          })    
+          }) 
       }
 
     getServicios(props) {
@@ -31,13 +31,14 @@ class Consulta extends Component{
             return response.json()
           })
           .then((data) => {
-            this.filter.Categorias = data.map(x=>x.Nombre)
+            if(!this.filter.Categorias.length>0){
+                this.filter.Categorias = data.map(x=>x.Nombre)
+            }
             this.setState({ categorias: data })
           })    
       }
       
-    getFiltered(){
-        console.dir(this.filter)
+    getFiltered(props){
             fetch('http://localhost:55555/app/establecimientos/filtrados', {
             method: 'POST',
             headers: {
@@ -53,20 +54,7 @@ class Consulta extends Component{
     }
 
     getEstablecimientos(props) {
-        console.log("A verrr " + this.initialization)
-        if(this.initialization){
-            fetch('http://localhost:55555/app'+'/establecimientos?size=5')
-            .then((response) => {
-              return response.json()
-            })
-            .then((est) => {
-              this.initialization = false
-              this.setState({ establecimientos: est })
-            })    
-        }else{
-            this.getFiltered()
-        }
-        
+            this.getFiltered(props)
       }
       orderChanged(event){
           this.filter.Orden = event.target.value
@@ -87,16 +75,24 @@ class Consulta extends Component{
           
       }
 
-      getAll(props){
-          this.initialization = true
-          this.getEstablecimientos(props)
-          this.getCategorias(props)
-          this.getServicios(props)
-          this.getMenus(props)
+      componentDidMount(props){
+          this.getAll(props)
       }
+
+      getAll(props){
+          //Promise.join(this.getCategorias(), this.getServicios(),this.getMenus(),()=>{
+           // this.getEstablecimientos(props)            
+        //});
+        this.getMenus()
+        this.getServicios()
+        this.getCategorias()
+        }
+
+      
       
     constructor(props) {
         super(props);
+        this.initialization = true
         this.handleChecked = this.handleChecked.bind(this); 
         this.orderChanged = this.orderChanged.bind(this)
         this.state = {
@@ -105,17 +101,23 @@ class Consulta extends Component{
           servicios: [],
           menus: []
         }
+        let categorias = props.location.initialFilter?props.location.initialFilter.Categorias:[]
         this.filter = {
             Servicios:[],
             Menus:[],
-            Categorias:[],
+            Categorias:categorias,
             Orden: "NOMBRE"
         }
-        this.getAll(props)
+        
     }
     
-    render(){
-        console.log("RECARGANDO")
+    render(props){
+        if(!this.state.establecimientos.length>0 && this.initialization){
+            this.getEstablecimientos(props)
+            return (<div><div class="d-flex justify-content-center"><div class="loader"></div></div>
+            <div class="d-flex justify-content-center"><div class="loader-text"><h4>Buscando los mejores lugares!</h4></div></div></div>)
+        }else
+        this.initialization = false
         return(
             <div className="Consulta">
                 <div className="container col-8">
