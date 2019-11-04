@@ -27,7 +27,13 @@ class RegistroLocales extends Component {
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="lugar">Localidad</label>
-                                <Select name="lugar" options = {optionlugar} className="form-control" id="lugar" placeholder= 'Ubicación del local'></Select>
+                                <Select name="lugar" options = {optionlugar} className="" id="lugar" placeholder= 'Ubicación del local'></Select>
+                            </div> 
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="lugar">Ciudad</label>
+                                <Select name="lugar" options = {optionlugar} className="" id="lugar" placeholder= 'Ubicación del local'></Select>
                             </div> 
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12"> 
