@@ -1,7 +1,38 @@
 import React, {Component} from 'react';
 
 class LocalP extends Component{
+
+    constructor(props) {
+        super(props);
+        if (props.location.establecimientoId==null)
+            props.location.establecimientoId= 1
+        this.state = {
+            loading : true
+        }
+        this.establecimiento = {}
+        this.getEstablecimiento(props)
+        
+    }
+
+    getEstablecimiento(props) {
+        fetch('http://localhost:55555/app/establecimientos/'+props.location.establecimientoId)
+          .then((response) => {
+            return response.json()
+          })
+          .then((data) => {
+            this.establecimiento = data
+            this.setState({loading:false})
+          })    
+      }
+    
+
     render(){
+        console.dir(this.state.establecimiento)
+        if(this.state.loading){
+            return (<div><div class="d-flex justify-content-center"><div class="loader"></div></div>
+            <div class="d-flex justify-content-center"><div class="loader-text"><h4>Buscando los mejores lugares!</h4></div></div></div>)
+        }
+        else
         return(
             <div className="LocalPerfil">
                 <div class="container">
@@ -40,25 +71,24 @@ class LocalP extends Component{
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-4 pr-md-5 ">
-                                        <img class="w-100 rounded border" src="img/Floreria_atlantico00.jpg" />
+                                        <img class="w-100 rounded border" src={"img/bar"+this.establecimiento.Id    +".jpg"} />
                                         <div class="pt-4 mt-2 ">
                                             <section class="mb-4 pb-1 ">
                                                 <div class="work-experience pt-2 ">
                                                     <div class="work mb-4 ">
                                                         <strong class="h5 d-block text-secondary font-weight-bold mb-1">Calificación</strong>
-                                                        <img src="img/estrellas-4.png"></img>
+                                                        <img src={"img/estrellas-"+this.establecimiento.Rating+".png"}></img>
                                                     </div>
                                                     <div class="work mb-4 ">
                                                         <strong class="h5 d-block text-secondary font-weight-bold mb-1">Ubicación</strong>
-                                                        <p class="text-secondary">Arroyo 872, CABA</p>
+                                                        <p class="text-secondary">{this.establecimiento.Direccion +", " + this.establecimiento.Ciudad}</p>
                                                     </div>
                                                     <div class="work mb-4 ">
                                                         <strong class="h5 d-block text-secondary font-weight-bold mb-1">Servicios</strong>
                                                         <ul>
-                                                            <li>Wifi</li>
-                                                            <li>Menú vegano</li>
-                                                            <li>Aire acondicionado</li>
-                                                            <li>Sector fumador</li>
+                                                            {this.establecimiento.Servicios.map(servicio=>{
+                                                                return (<li>{servicio.Nombre}  </li>)
+                                                            })}
                                                         </ul>
                                                     </div>
                                                 </div>    
@@ -68,17 +98,15 @@ class LocalP extends Component{
                                     <div class="col-md-8 ">
                                         <div class="d-flex align-items-center ">
                                             <h2 class="font-weight-bold m-0">
-                                                Florería Atlántico
+                                                {this.establecimiento.Nombre}
                                             </h2>
                                         </div>
                                         <p class="h5 text-primary mt-2 d-block font-weight-light">
-                                            Bar
+                                            {this.establecimiento.Categorias.map(categoria=>{
+                                                return (categoria.Nombre + " ")
+                                            })}
                                         </p>
-                                        <p class="lead mt-4">Abierto a principios de 2013, Florería Atlántico tiene en la planta baja una coqueta florería y vinoteca, 
-                                        mientras que el bar ocupa el subsuelo, al que se accede tras franquear una enorme puerta. Sus paredes están decoradas con dibujos 
-                                        que remiten al mar y leyendas de míticas criaturas marinas: "Somos los que amamos el vino y los cócteles, el mar y el fuego, las flores 
-                                        y la música, las ciudades y sus puertos, la recoleta elegante y el sur reo, los monstruos míticos y las leyendas por descubrir", puede 
-                                        leerse en su carta de presentación.</p>
+                                        <p class="lead mt-4">{this.establecimiento.Descripcion}</p>
                                         <section>
                                             <div class=" p-2 " >
                                                 <h6 class="text-uppercase font-weight-light text-secondary p-2">
@@ -89,11 +117,11 @@ class LocalP extends Component{
                                                     <dd class="col-sm-9">011 555 5555</dd>
                                                     <dt class="col-sm-3">Dirección</dt>
                                                     <dd class="col-sm-9">
-                                                        Arroyo 872, CABA.
+                                                        {this.establecimiento.Direccion + ", " + this.establecimiento.Ciudad}
                                                     </dd>
                                                     <dt class="col-sm-3">Email</dt>
                                                     <dd class="col-sm-9">
-                                                        <a href="mailto:#">email@dominio.com</a>
+                                                        <a href="mailto:#">{this.establecimiento.Nombre.replace(/ /g,'')}@gmail.com.ar</a>
                                                     </dd>
                                                 </dl>   
                                             </div>
@@ -110,42 +138,16 @@ class LocalP extends Component{
                                             <br></br>
                                             <button type="button" class="btn btn-dark form-group">Enviar</button>  
                                         </form>
-                                        <div class="media">
-                                            <img src="img/avatar1.jpg" width="64" height="64"></img>
-                                            <div class="media-body">
-                                                <p class="nombre"> Juan Pérez<span> 7:10pm, 10 de sep. 2019</span></p>
-                                                <p class="comentario"> Es genial! me encantó! Muy recomendable. </p>
-                                                <div class="boton text-right">
-                                                    <a href="#">Responder</a>
-                                                    <a href="#">Editar</a>
-                                                    <a href="#">Eliminar</a>                            
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="media">
+                                        {this.establecimiento.Comentarios.map(comentario=>{
+                                            return (<div class="media">
                                             <img src="img/avatar2.jpg" width="64" height="64"></img>
                                             <div class="media-body">
-                                                <p class="nombre"> Lucía Fernandez <span>1:23pm, 12 de sep. 2019</span></p>
-                                                <p class="comentario"> Es mi bar favorito. Muy buena atención </p>
-                                                <div class="boton text-right">
-                                                    <a href="#">Responder</a>
-                                                    <a href="#">Editar</a>
-                                                    <a href="#">Eliminar</a>                            
-                                                </div>
+                                                <strong class="nombre ml-2 row">  {comentario.Titulo}</strong>
+                                                <i class="comentario ml-2 row"> {comentario.Descripcion}</i>
                                             </div>
-                                        </div>
-                                        <div class="media">
-                                            <img src="img/avatar3.jpg" width="64" height="64"></img>
-                                            <div class="media-body">
-                                                <p class="nombre">Carlos Gómez<span> 9:41am, 1 de oct. 2019</span></p>
-                                                <p class="comentario">Un ambiente muy agradable. Si fuera más barato sería perfecto.  </p>
-                                                <div class="boton text-right">
-                                                    <a href="#">Responder</a>
-                                                    <a href="#">Editar</a>
-                                                    <a href="#">Eliminar</a>                            
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </div>)
+                                        })}
+                                        
                                     </div>
                                 </div>
                             </div>

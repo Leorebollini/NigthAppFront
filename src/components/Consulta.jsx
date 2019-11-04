@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class Consulta extends Component{
 
@@ -219,7 +220,7 @@ class Consulta extends Component{
                                     <div id="establecimientos">
                                         {this.state.establecimientos.map(establecimiento =>{
                                             return (
-                                                <div className="row caja_consulta rounded m-1 p-1">
+                                                <Link to={{pathname:"/local", establecimientoId :establecimiento.Id}} style={{ textDecoration: 'none', color: 'black' }} className="row caja_consulta rounded m-1 p-1">
                                                     <div className="col-xs-12 col-md-6">
                                                         <img className = "img-fluid" src={"img/bar"+ establecimiento.Id + ".jpg"}></img>
                                                     </div>
@@ -229,7 +230,7 @@ class Consulta extends Component{
                                                         <p>{establecimiento.Descripcion}</p>
 
                                                         </div>
-                                            </div>)
+                                            </Link>)
                                         })}
                                     </div>
                                     <nav className="mt-3">
