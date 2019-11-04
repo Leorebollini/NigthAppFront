@@ -30,7 +30,7 @@ class LocalP extends Component{
         console.dir(this.state.establecimiento)
         if(this.state.loading){
             return (<div><div class="d-flex justify-content-center"><div class="loader"></div></div>
-            <div class="d-flex justify-content-center"><div class="loader-text"><h4>Buscando los mejores lugares!</h4></div></div></div>)
+            <div class="d-flex justify-content-center"><div class="loader-text"><h4>Cargando!</h4></div></div></div>)
         }
         else
         return(

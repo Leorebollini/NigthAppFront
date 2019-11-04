@@ -9,7 +9,57 @@ const optionlugar = [
 ];
 
 class RegistroLocales extends Component {
+
+    getMenus() {
+        fetch('http://localhost:55555/app'+'/menus')
+          .then((response) => {
+            return response.json()
+          })
+          .then((data) => {
+            this.setState({menus: data })
+          })    
+      }
+      getServicios() {
+        fetch('http://localhost:55555/app'+'/servicios')
+          .then((response) => {
+            return response.json()
+          })
+          .then((data) => {
+            this.setState({servicios: data })
+          })    
+      }
+      getCategorias() {
+        fetch('http://localhost:55555/app'+'/categorias')
+          .then((response) => {
+            return response.json()
+          })
+          .then((data) => {
+            this.setState({categorias: data })
+          })    
+      }
+
+    constructor(props) {
+        super(props);
+        this.state = {loading:true}
+        this.getCategorias()
+        this.getServicios()
+        this.getMenus()
+        
+    }
+    
+    refreshStatus(){
+        if(this.state.categorias && this.state.servicios && this.state.menus){
+            this.setState({loading:false})
+        }
+    }
+    
+
     render() {
+        if(this.state.loading){
+            this.refreshStatus()
+            return (<div><div class="d-flex justify-content-center"><div class="loader"></div></div>
+            <div class="d-flex justify-content-center"><div class="loader-text"><h4>Cargando!</h4></div></div></div>)
+        }else
         return (
             <div className="RegistroLocales">
                 <div class="container">
@@ -20,7 +70,7 @@ class RegistroLocales extends Component {
                     <div class="form-group row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="nombre_local">Nombre del local</label>
+                                <label for="nombre_local">Nombre</label>
                                 <input type="text" class="form-control" id="nombre_local"></input> 
                             </div>  
                         </div>            
@@ -38,7 +88,7 @@ class RegistroLocales extends Component {
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12"> 
                             <div class="form-group">
-                                <label for="direccion_local">Dirección del local</label>
+                                <label for="direccion_local">Dirección</label>
                                 <label for="direccion_local" class="sr-only">Ej: 123 e/ 59 y 52</label>
                                 <input type="text" class="form-control" id="direccion_local" placeholder="123 e/ 59 y 52"></input>  
                             </div>    
@@ -52,133 +102,50 @@ class RegistroLocales extends Component {
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="descripcion_local">Descripción del local</label>
+                                <label for="descripcion_local">Descripción</label>
                                 <textarea name="descripcion" class="form-control" id="descripcion_local" maxlength="1000" placeholder="Escribe la descripción del local aqui." cols= "50"></textarea>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="form-group">
+                            <div class="form-group col-12">
                                 <p class="form_text">Categorías</p>
-                            </div>
-                        </div> 
-                        <div class="form-group row px-4">
-                            <div class="col-xs-12 col-sm-12 col-md-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="defaultInline1"></input>
-                                    <label class="custom-control-label" for="defaultInline1">Bares</label>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="defaultInline2"></input>
-                                    <label class="custom-control-label" for="defaultInline2">Restaurantes</label>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-4">  
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="defaultInline3"></input>
-                                    <label class="custom-control-label" for="defaultInline3">Bailables</label>
-                                </div>
-                            </div> 
+                                <div class="form-group row px-4">
+                                    {this.state.categorias.map(categoria=>{
+                                        return (<div class="col-xs-12 col-sm-4 col-md-3">
+                                        <div class="custom-control custom-checkbox custom-control-inline">
+                                            <input type="checkbox" class="custom-control-input" id={"cat-"+categoria.Id}></input>
+                                            <label class="custom-control-label" for={"cat-"+categoria.Id}>{categoria.Nombre}</label>
+                                        </div>
+                                    </div>)
+                                    })}
                         </div>
-                        <div class="col-12">
-                            <div class="form-group">
+                            </div>
+                            <div class="form-group col-12">
                                 <p class="form_text">Servicios</p>
-                            </div>
+                                <div class="form-group row px-4">
+                                    {this.state.servicios.map(servicio=>{
+                                        return (<div class="col-xs-12 col-sm-4 col-md-3">
+                                        <div class="custom-control custom-checkbox custom-control-inline">
+                                            <input type="checkbox" class="custom-control-input" id={"ser-"+servicio.Id}></input>
+                                            <label class="custom-control-label" for={"ser-"+servicio.Id}>{servicio.Nombre}</label>
+                                        </div>
+                                    </div>)
+                                    })}
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6">
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="aire"></input>
-                                    <label class="custom-control-label" for="aire">Aire acondicionado</label>
-                                </div>
                             </div>
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="cerveza_artesanal"></input>
-                                    <label class="custom-control-label" for="cerveza_artesanal">Cerveza artesanal</label>
-                                </div>
-                            </div>
-                            <div class="form-group px-4">  
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="entrada_gratis"></input>
-                                    <label class="custom-control-label" for="entrada_gratis">Entrada gratis</label>
-                                </div>
-                            </div> 
-
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="estacionamiento"></input>
-                                    <label class="custom-control-label" for="estacionamiento">Estacionamiento</label>
-                                </div>
-                            </div>
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="guardarropa"></input>
-                                    <label class="custom-control-label" for="guardarropa">Guardarropa</label>
-                                </div>
-                            </div>
-                            <div class="form-group px-4">  
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="happy_hour"></input>
-                                    <label class="custom-control-label" for="happy_hour">Happy Hour</label>
-                                </div>
-                            </div> 
-
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="jenga"></input>
-                                    <label class="custom-control-label" for="jenga">Jenga</label>
-                                </div>
-                            </div>
+                            <div class="form-group col-12">
+                                <p class="form_text">Menus</p>
+                                <div class="form-group row px-4">
+                                    {this.state.menus.map(menu=>{
+                                        return (<div class="col-xs-12 col-sm-4 col-md-3">
+                                        <div class="custom-control custom-checkbox custom-control-inline">
+                                            <input type="checkbox" class="custom-control-input" id={"men-"+menu.Id}></input>
+                                            <label class="custom-control-label" for={"men-"+menu.Id}>{menu.Nombre}</label>
+                                        </div>
+                                    </div>)
+                                    })}
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6">
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="juegos_mesa"></input>
-                                    <label class="custom-control-label" for="juegos_mesa">Juegos de mesa</label>
-                                </div>
                             </div>
-                            <div class="form-group px-4">  
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="pool"></input>
-                                    <label class="custom-control-label" for="pool">Pool</label>
-                                </div>
-                            </div> 
-                        
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="sector_fumador"></input>
-                                    <label class="custom-control-label" for="sector_fumador">Sector fumador</label>
-                                </div>
-                            </div>
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="show"></input>
-                                    <label class="custom-control-label" for="show">Show</label>
-                                </div>
-                            </div>
-                            <div class="form-group px-4">  
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="television"></input>
-                                    <label class="custom-control-label" for="television">Televisión</label>
-                                </div>
-                            </div> 
-
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="tenedor_libre"></input>
-                                    <label class="custom-control-label" for="tenedor_libre">Tenedor libre</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group px-4">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-                                    <input type="checkbox" class="custom-control-input" id="wifi"></input>
-                                    <label class="custom-control-label" for="wifi">Wifi</label>
-                                </div>
-                            </div>
-                        </div>         
+                               
                     </div>
                     <div class="form-group">
                         <div class="col-12 px-4">
