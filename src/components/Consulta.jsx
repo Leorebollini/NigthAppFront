@@ -128,11 +128,11 @@ class Consulta extends Component{
         this.initialization = false
         return(
             <div className="Consulta">
-                <div className="container col-8">
+                <div className="container">
                     <section className="row mt-3">
                         <div className="col-xs-12 col-sm-8 col-md-9">
                             <div className="row">
-                            <div className="card col-3">
+                            <div className="col-3">
                                 
                             <article className="card-group-item card mt-3">
                                         <header className="card-header">
