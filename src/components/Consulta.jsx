@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class Consulta extends Component{
 
@@ -60,6 +61,11 @@ class Consulta extends Component{
           this.filter.Orden = event.target.value
           this.getEstablecimientos()
       }
+      handleKeyUp(event){
+          this.filter.Nombre = event.target.value
+          this.getEstablecimientos()
+
+      }
       handleChecked (event) {
             if(this.filter[event.target.name].includes(event.target.value) && this.filter[event.target.name].length>1){
                 let index = this.filter[event.target.name].indexOf(event.target.value)
@@ -95,6 +101,7 @@ class Consulta extends Component{
         this.initialization = true
         this.handleChecked = this.handleChecked.bind(this); 
         this.orderChanged = this.orderChanged.bind(this)
+        this.handleKeyUp = this.handleKeyUp.bind(this)
         this.state = {
           establecimientos: [],
           categorias: [],
@@ -103,6 +110,7 @@ class Consulta extends Component{
         }
         let categorias = props.location.initialFilter?props.location.initialFilter.Categorias:[]
         this.filter = {
+            Nombre:"",
             Servicios:[],
             Menus:[],
             Categorias:categorias,
@@ -120,12 +128,32 @@ class Consulta extends Component{
         this.initialization = false
         return(
             <div className="Consulta">
-                <div className="container col-8">
+                <div className="container">
                     <section className="row mt-3">
                         <div className="col-xs-12 col-sm-8 col-md-9">
                             <div className="row">
-                            <div className="card col-3">
-                                    <article className="card-group-item">
+                            <div className="col-3">
+                                
+                            <article className="card-group-item card mt-3">
+                                        <header className="card-header">
+                                            <h6 className="title"> Nombre </h6>
+                                        </header>
+                                        <div className="filter-content">
+                                            <div className="card-body">
+                                            <div className="input-group">
+                                                        <input className="form-control" placeholder="Ej: Antares" type="text" onKeyUp={this.handleKeyUp}></input>
+                                                        <div className="input-group-append">
+                                                            <button className="btn btn-primary" type="button">
+                                                                <i className="fa fa-search"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article className="card-group-item card mt-3">
                                         <header className="card-header">
                                         <h6 className="title">Ubicacion</h6>
                                         </header>
@@ -154,7 +182,7 @@ class Consulta extends Component{
                                             </div> 
                                         </div>
                                     </article>
-                                    <article className="card-group-item card">
+                                    <article className="card-group-item card mt-3">
                                         <header className="card-header">
                                             <h6 className="title"> Tipo </h6>
                                         </header>
@@ -172,7 +200,7 @@ class Consulta extends Component{
                                             </div>
                                         </div>
                                     </article>
-                                    <article className="card-group-item card">
+                                    <article className="card-group-item card mt-3">
                                         <header className="card-header">
                                             <h6 className="title"> Servicios </h6>
                                         </header>
@@ -191,7 +219,7 @@ class Consulta extends Component{
                                         </div>
                                     </article>
 
-                                    <article className="card-group-item card">
+                                    <article className="card-group-item card mt-3">
                                         <header className="card-header">
                                             <h6 className="title"> Menu </h6>
                                         </header>
@@ -219,7 +247,7 @@ class Consulta extends Component{
                                     <div id="establecimientos">
                                         {this.state.establecimientos.map(establecimiento =>{
                                             return (
-                                                <div className="row caja_consulta rounded m-1 p-1">
+                                                <Link to={{pathname:"/local", establecimientoId :establecimiento.Id}} style={{ textDecoration: 'none', color: 'black' }} className="row caja_consulta rounded m-1 p-1">
                                                     <div className="col-xs-12 col-md-6">
                                                         <img className = "img-fluid" src={"img/bar"+ establecimiento.Id + ".jpg"}></img>
                                                     </div>
@@ -229,7 +257,7 @@ class Consulta extends Component{
                                                         <p>{establecimiento.Descripcion}</p>
 
                                                         </div>
-                                            </div>)
+                                            </Link>)
                                         })}
                                     </div>
                                     <nav className="mt-3">

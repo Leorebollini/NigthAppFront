@@ -24,7 +24,7 @@ class App extends Component {
           <Route path='/about' component={About}/>
           <Route path='/iniciosesion' component={Sesion}/>
           <Route path='/RegistroLocales' component={RegistroLocales}/>
-          {/* <Route path='/about' component={LocalP}/> */}
+          <Route path='/local' component={LocalP}/> 
           <Route path='/Consulta' component={Consulta}/>
           <Route path='/UsuarioP' component={UsuarioP}/>
           <Route path='/recuperarcontraseña' component={Recuperar}/>
