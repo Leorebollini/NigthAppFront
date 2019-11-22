@@ -14,26 +14,26 @@
 <body>
     <header>
        <!-- barra de navegación -->
-        <div class="container">
-           <div class="row">
-               <div class="col-12">
-                   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                    <a class="navbar-brand" href="#">NigthApp</a>
-                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                         <span class="navbar-toggler-icon"></span>
+        <div className="container">
+           <div className="row">
+               <div className="col-12">
+                   <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+                    <a className="navbar-brand" href="#">NigthApp</a>
+                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                         <span className="navbar-toggler-icon"></span>
                      </button>
-                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav bg-inverse">
-                          <li class="nav-item">
-                               <a href="index.html" class="nav-link">Inicio</a>
+                      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul className="navbar-nav bg-inverse">
+                          <li className="nav-item">
+                               <a href="index.html" className="nav-link">Inicio</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="index.html" class="nav-link">Ayuda</a>
+                            <li className="nav-item">
+                                <a href="index.html" className="nav-link">Ayuda</a>
                             </li>
                         </ul>
-                        <ul class="nav navbar-nav ml-auto">
-                          <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" href="#modal-login"><span class="fas fa-user"></span>Ingresar</a>
+                        <ul className="nav navbar-nav ml-auto">
+                          <li className="nav-item">
+                            <a className="nav-link" data-toggle="modal" href="#modal-login"><span className="fas fa-user"></span>Ingresar</a>
                           </li>
                         </ul>
                        </div>
@@ -43,40 +43,40 @@
            </div>
          <!-- fin de barra de navegación -->
             <!-- modal login-->
-           <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
-              <div class="modal-dialog modal-sm">
-                 <div class="modal-content">
-                     <div class="modal-body">
-                         <div class="row">
-                            <div class="col">
-                                <button class="close" data-dismiss="modal" aria-label="Cerrar">
+           <div className="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login" aria-hidden="true">
+              <div className="modal-dialog modal-sm">
+                 <div className="modal-content">
+                     <div className="modal-body">
+                         <div className="row">
+                            <div className="col">
+                                <button className="close" data-dismiss="modal" aria-label="Cerrar">
                              <span aria-hidden="true">&times;</span>
                          </button>
                             </div>
                              
                          </div>
-                        <div class="row">
-                        <div class="col text-center p-4">
+                        <div className="row">
+                        <div className="col text-center p-4">
                            <form  action="" method="">
-                                <div class="form-group" id="user-group">
-                                    <input type="text" class="form-control" placeholder="Nombre de usuario" name="username"/>
+                                <div className="form-group" id="user-group">
+                                    <input type="text" className="form-control" placeholder="Nombre de usuario" name="username"/>
                                 </div>
-                                <div class="form-group" id="contrasena-group">
-                                    <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
+                                <div className="form-group" id="contrasena-group">
+                                    <input type="password" className="form-control" placeholder="Contraseña" name="password"/>
                                 </div>
-                                <button type="submit" class="btn  btn-dark"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                                <button type="submit" className="btn  btn-dark"><i className="fas fa-sign-in-alt"></i>  Ingresar </button>
                             </form>
                             
                         </div>
                          
                      </div>
-                        <div class="row">
-                            <div class="col text-center p-1">
+                        <div className="row">
+                            <div className="col text-center p-1">
 						        <a href="recuperar_contraseña">Olvidé la contraseña</a>
 					        </div>
                         </div>
-                        <div class="row">
-                            <div class="col text-center p-1">
+                        <div className="row">
+                            <div className="col text-center p-1">
 						        <a href="registro.html">Registrarte</a>
 					        </div>
                         </div>
@@ -93,57 +93,57 @@
     </header>
     
     
-    <div class="container">
-        <section class="row m-4">
+    <div className="container">
+        <section className="row m-4">
            <!-- formulario de registro -->
-            <div class="col-xs-12 col-sm-8 col-md-9">
+            <div className="col-xs-12 col-sm-8 col-md-9">
                <form action="#">
-                  <div class="form-group row">
-                     <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-                         <label for="Nombre" class="form_text">Nombre</label><br>
-                         <input class="form-control " type="text">
+                  <div className="form-group row">
+                     <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
+                         <label for="Nombre" className="form_text">Nombre</label><br>
+                         <input className="form-control " type="text">
                      </div>
-                     <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-                         <label for="Apellido" class="form_text">Apellido</label><br>
-                         <input class="form-control " type="text">
+                     <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
+                         <label for="Apellido" className="form_text">Apellido</label><br>
+                         <input className="form-control " type="text">
                      </div>   
                   </div>
-                   <div class="form-group row">
-                     <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-                         <label for="usermane" class="form_text">Nombre de usuario</label><br>
-                         <input class="form-control " type="text">
+                   <div className="form-group row">
+                     <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
+                         <label for="usermane" className="form_text">Nombre de usuario</label><br>
+                         <input className="form-control " type="text">
                      </div>   
                   </div>
-                  <div class=" form-group row">
-                     <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-                       <label for="Contraseña" class="form_text">Contraseña</label><br>
-                         <input class="form-control " type="password">
+                  <div className=" form-group row">
+                     <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
+                       <label for="Contraseña" className="form_text">Contraseña</label><br>
+                         <input className="form-control " type="password">
                       </div>
-                      <div class="col-xs-12 col-sm-12 col-md-6 mb-3">
-                       <label for="Contraseña_conf" class="form_text">Confirmar contraseña</label><br>
-                         <input class="form-control " type="password">
-                      </div>
-                    </div>
-                    <div class=" form-group row">
-                     <div class="col-xs-12 col-sm-12 col-md-6">
-                       <label for="email" class="form_text">E-mail</label><br>
-                         <input class="form-control " type="email">
-                      </div>
-                      <div class="col-xs-12 col-sm-12 col-md-6">
-                       <label for="tel" class="form_text">Teléfono</label><br>
-                         <input class="form-control " type="tel">
+                      <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
+                       <label for="Contraseña_conf" className="form_text">Confirmar contraseña</label><br>
+                         <input className="form-control " type="password">
                       </div>
                     </div>
-                    <div class=" form-group row">
-                     <div class="col">
+                    <div className=" form-group row">
+                     <div className="col-xs-12 col-sm-12 col-md-6">
+                       <label for="email" className="form_text">E-mail</label><br>
+                         <input className="form-control " type="email">
+                      </div>
+                      <div className="col-xs-12 col-sm-12 col-md-6">
+                       <label for="tel" className="form_text">Teléfono</label><br>
+                         <input className="form-control " type="tel">
+                      </div>
+                    </div>
+                    <div className=" form-group row">
+                     <div className="col">
                         <input type="checkbox">
-                       <label for="Contraseña" class="form_text">Acepto los <a href="#">términos y condiciones.</a> </label>
+                       <label for="Contraseña" className="form_text">Acepto los <a href="#">términos y condiciones.</a> </label>
                          
                       </div>
                     </div>
-                     <div class=" form-group  row">
-                      <div class="col">
-                              <button class="btn  btn-dark" type="submit">Enviar</button>
+                     <div className=" form-group  row">
+                      <div className="col">
+                              <button className="btn  btn-dark" type="submit">Enviar</button>
                           </div>
                       
                   </div>
@@ -154,20 +154,20 @@
             </div>
             <!-- fin de formulario de registro -->
             <!-- columna lateral -->
-            <aside class="col-xs-12 col-sm-4 col-md-3 p-2">
-               <div class="card  p-3">
-					<img src="img/beer.jpg" class="card-img-top img-fluid" alt="">
-					<div class="card-block">
-						<h3 class="card-title">Beer</h3>
-						<p class="card-text">Cervecería artesanal. </p>
+            <aside className="col-xs-12 col-sm-4 col-md-3 p-2">
+               <div className="card  p-3">
+					<img src="img/beer.jpg" className="card-img-top img-fluid" alt="">
+					<div className="card-block">
+						<h3 className="card-title">Beer</h3>
+						<p className="card-text">Cervecería artesanal. </p>
                    </div>
 				</div>
               <br>
-               <div class="card  p-3">
-					<img src="img/Dj.jpg" class="card-img-top img-fluid" alt="">
-					<div class="card-block">
-						<h3 class="card-title">Phoenix</h3>
-						<p class="card-text">Techno - Dance - Electrónica. </p>
+               <div className="card  p-3">
+					<img src="img/Dj.jpg" className="card-img-top img-fluid" alt="">
+					<div className="card-block">
+						<h3 className="card-title">Phoenix</h3>
+						<p className="card-text">Techno - Dance - Electrónica. </p>
                    </div>
 				</div>
             </aside>
@@ -177,7 +177,7 @@
     </div>
     
     <footer>
-        <div class="container bg-dark text-light text-center p-2">
+        <div className="container bg-dark text-light text-center p-2">
             <p>Wed creada para aprobar Proyecto</p>
         </div>
     </footer>
