@@ -7,6 +7,7 @@ import About from './components/About.jsx';
 import Sesion from './components/Sesion.jsx';
 import RegistroLocales from './components/RegistroLocales.jsx';
 import Consulta from './components/Consulta.jsx';
+import Recuperar from  './components/RecuperarC.jsx'
 import LocalP from './components/LocalP.jsx';
 import UsuarioP from './components/UsuarioP.jsx';
 import Condiciones from './components/Condiciones.jsx';
@@ -24,10 +25,14 @@ class App extends Component {
           <Route path='/about' component={About}/>
           <Route path='/iniciosesion' component={Sesion}/>
           <Route path='/RegistroLocales' component={RegistroLocales}/>
-          <Route path='/LocalP' component={LocalP}/>
+          <Route path='/local' component={LocalP}/> 
           <Route path='/Consulta' component={Consulta}/>
           <Route path='/UsuarioP' component={UsuarioP}/>
+<<<<<<< HEAD
           <Route path= '/Condiciones' component={Condiciones}/>
+=======
+          <Route path='/recuperarcontraseña' component={Recuperar}/>
+>>>>>>> 1584f5f3f2dde8bc6b100089dadf93c86f3b9d17
         </div>
       </Router>
     )
