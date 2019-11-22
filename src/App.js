@@ -9,6 +9,7 @@ import RegistroLocales from './components/RegistroLocales.jsx';
 import Consulta from './components/Consulta.jsx';
 import LocalP from './components/LocalP.jsx';
 import UsuarioP from './components/UsuarioP.jsx';
+import Condiciones from './components/Condiciones.jsx';
 import {BrowserRouter as Router, Link, Route, Switch, NavLink} from 'react-router-dom';
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
           <Route path='/LocalP' component={LocalP}/>
           <Route path='/Consulta' component={Consulta}/>
           <Route path='/UsuarioP' component={UsuarioP}/>
+          <Route path= '/Condiciones' component={Condiciones}/>
         </div>
       </Router>
     )

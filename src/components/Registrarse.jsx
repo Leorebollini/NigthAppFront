@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class Registrarse extends Component {
     render() {
+        function handleClick(e){
+            e.preventDefault();
+            document.querySelector("#terminosycondiciones").disabled = false;
+            window.open("/Condiciones", "_blank");
+        }
         return (
             <div className="Registro">
                 <div className="container">
@@ -46,8 +52,9 @@ class Registrarse extends Component {
                             </div>
                             <div className=" form-group row">
                                 <div className="col">
-                                    <label for="Contraseña" className="form_text">Acepto los <a href="#">términos y condiciones.</a> </label>
-                                    <input type="checkbox"></input>
+                                    <label for="Contraseña" className="form_text">Acepto los 
+                                        <a href="#" target="_blank" onClick={handleClick}>términos y condiciones.</a></label>
+                                    <input type="checkbox" id="terminosycondiciones" disabled></input>
                                 </div>
                             </div>
                             <div className=" form-group  row">
