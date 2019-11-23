@@ -122,8 +122,8 @@ class Consulta extends Component{
     render(props){
         if(!this.state.establecimientos.length>0 && this.initialization){
             this.getEstablecimientos(props)
-            return (<div><div class="d-flex justify-content-center"><div class="loader"></div></div>
-            <div class="d-flex justify-content-center"><div class="loader-text"><h4>Buscando los mejores lugares!</h4></div></div></div>)
+            return (<div><div className="d-flex justify-content-center"><div className="loader"></div></div>
+            <div className="d-flex justify-content-center"><div className="loader-text"><h4>Buscando los mejores lugares!</h4></div></div></div>)
         }else
         this.initialization = false
         return(

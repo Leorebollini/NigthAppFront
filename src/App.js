@@ -28,11 +28,8 @@ class App extends Component {
           <Route path='/local' component={LocalP}/> 
           <Route path='/Consulta' component={Consulta}/>
           <Route path='/UsuarioP' component={UsuarioP}/>
-<<<<<<< HEAD
-          <Route path= '/Condiciones' component={Condiciones}/>
-=======
-          <Route path='/recuperarcontraseña' component={Recuperar}/>
->>>>>>> 1584f5f3f2dde8bc6b100089dadf93c86f3b9d17
+          <Route path='/Condiciones' component={Condiciones}/>
+          <Route path='/Recuperar' component={Recuperar}/>
         </div>
       </Router>
     )

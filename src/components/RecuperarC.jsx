@@ -22,7 +22,7 @@ class RecuperarC extends Component{
                     </div>
                 </div>
                 <footer>
-                    <div class="container bg-dark text-light p-2">
+                    <div className="container bg-dark text-light p-2">
                         <p>Wed creada para aprobar Proyecto</p>
                     </div>
                 </footer>

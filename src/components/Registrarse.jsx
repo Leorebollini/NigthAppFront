@@ -2,10 +2,50 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
 class Registrarse extends Component {
+    constructor() {
+        super();
+        this.state = {
+            name: '',
+            surename: '',
+            username: '',
+            password: '',
+            confirmPassword: '',
+            email: '',
+            phone: '',
+            hasAgreed: false
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.input = React.createRef();
+    }
+    handleInputChange(e){
+        const target = e.target;
+        const name = target.name;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        this.setState({ [name]: value });
+    }
+    /*handleChange(e) {
+        let target = e.target;
+        let value = target.type === 'checkbox' ? target.checked : target.value;
+        let name = target.name;
+
+        this.setState({
+          [name]: value
+        });
+    }*/
+
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log(this.state);
+    }
+    
+
     render() {
         function handleClick(e){
             e.preventDefault();
             document.querySelector("#terminosycondiciones").disabled = false;
+            document.querySelector("#enviar").disabled = false;
             window.open("/Condiciones", "_blank");
         }
         return (
@@ -13,41 +53,55 @@ class Registrarse extends Component {
                 <div className="container">
                     <section className="row m-4">
                         <div className="col-xs-12 col-sm-8 col-md-9">
-                            <form action="#">
+                            <form onSubmit={this.handleSubmit} >
                                 <div className="form-group row">
                                     <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
-                                        <label for="Nombre" className="form_text">Nombre</label><br></br>
-                                        <input className="form-control " type="text"></input>
+                                        <label className="form_text">Nombre</label>
+                                        <label className="text-danger"> *</label>
+                                        <br></br>
+                                        <input className="form-control " type="text" ref="name" name="name" onChange={this.handleInputChange}></input>
                                     </div>
                                     <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
-                                        <label for="Apellido" className="form_text">Apellido</label><br></br>
-                                        <input className="form-control " type="text"></input>
+                                        <label className="form_text">Apellido</label>
+                                        <label className="text-danger"> *</label>
+                                        <br></br>
+                                        <input className="form-control " type="text" name="surename" onChange={this.handleInputChange}></input>
                                     </div>   
                                 </div>
                                 <div className="form-group row">
                                     <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
-                                        <label for="usermane" className="form_text">Nombre de usuario</label><br></br>
-                                        <input className="form-control " type="text"></input>
+                                        <label className="form_text">Nombre de usuario</label>
+                                        <label className="text-danger"> *</label>
+                                        <br></br>
+                                        <input className="form-control " type="text" name="username" onChange={this.handleInputChange}></input>
                                     </div>   
                                 </div>
                                 <div className=" form-group row">
                                     <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
-                                        <label for="Contraseña" className="form_text">Contraseña</label><br></br>
-                                        <input className="form-control " type="password"></input>
+                                        <label className="form_text">Contraseña</label>
+                                        <label className="text-danger"> *</label>
+                                        <br></br>
+                                        <input className="form-control " type="password" name="password" onChange={this.handleInputChange}></input>
                                 </div>
                                 <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
-                                    <label for="Contraseña_conf" className="form_text">Confirmar contraseña</label><br></br>
-                                    <input className="form-control " type="password"></input>
+                                    <label className="form_text">Confirmar contraseña</label>
+                                    <label className="text-danger"> *</label>
+                                    <br></br>
+                                    <input className="form-control " type="password" name="confirmPassword" onChange={this.handleInputChange}></input>
                                 </div>
                             </div>
                             <div className=" form-group row">
                                 <div className="col-xs-12 col-sm-12 col-md-6">
-                                    <label for="email" className="form_text">E-mail</label><br></br>
-                                    <input className="form-control " type="email"></input>
+                                    <label className="form_text">E-mail</label>
+                                    <label className="text-danger"> *</label>
+                                    <br></br>
+                                    <input className="form-control " type="email" name="email" onChange={this.handleInputChange}></input>
                                 </div>
                                 <div className="col-xs-12 col-sm-12 col-md-6">
-                                    <label for="tel" className="form_text">Teléfono</label><br></br>
-                                    <input class="form-control " type="tel"></input>
+                                    <label className="form_text">Teléfono</label>
+                                    <label className="text-danger"> *</label>
+                                    <br></br>
+                                    <input className="form-control " type="tel" name="phone" onChange={this.handleInputChange}></input>
                                 </div>
                             </div>
                             <div className=" form-group row">
@@ -59,7 +113,7 @@ class Registrarse extends Component {
                             </div>
                             <div className=" form-group  row">
                                 <div className="col">
-                                    <button className="btn  btn-dark" type="submit">Enviar</button>
+                                    <button className="btn  btn-dark" id="enviar" type="submit" disabled>Enviar</button>
                                 </div>
                             </div>                
                         </form>
@@ -84,7 +138,7 @@ class Registrarse extends Component {
                 </section>
             </div>
             <footer>
-                <div class="container bg-dark text-light p-2">
+                <div className="container bg-dark text-light p-2">
                     <p>Wed creada para aprobar Proyecto</p>
                 </div>
           </footer>
