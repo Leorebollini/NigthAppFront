@@ -26,7 +26,7 @@ class Sesion extends Component {
                 </div>
                 <div className="row">
                     <div className="col text-center p-1">
-						<a href="/recuperarcontraseña">Olvidé la contraseña</a>
+						<a href="/Recuperar">Olvidé la contraseña</a>
 					</div>
                 </div>
                 <div className="row">

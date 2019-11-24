@@ -11,7 +11,7 @@ class Condiciones extends Component{
                 <div className="container">
                     <h1>Terminos y condiciones</h1>
                     
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nemo cumque placeat possimus ipsa, excepturi dolores. Cupiditate animi possimus obcaecati tenetur? Molestiae sint repellat quaerat mollitia quis facere eaque voluptate?</p>
+                    <p>La empresa NightApp no se hará cargo de ningún tipo de accidente o robo que el usuario sufra dentro los establecimientos promocionados.</p>
                     <button className="btn btn-dark" type="button" onClick={handleClick}>Ya he leido los terminos y condiciones</button>
                 </div>
             </div>        

@@ -107,7 +107,7 @@ class Registrarse extends Component {
                             <div className=" form-group row">
                                 <div className="col">
                                     <label for="Contraseña" className="form_text">Acepto los 
-                                        <a href="#" target="_blank" onClick={handleClick}>términos y condiciones.</a></label>
+                                        <a href="#" target="_blank" onClick={handleClick}> términos y condiciones.</a></label>
                                     <input type="checkbox" id="terminosycondiciones" disabled></input>
                                 </div>
                             </div>
