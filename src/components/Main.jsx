@@ -31,19 +31,25 @@ const optionsLugar = [
       }
       console.dir(this.filter.Categorias)
       this.setState({update:"true"})
-    
-    
 }
 
     constructor(props) {
       super(props);
       this.handleChecked = this.handleChecked.bind(this); 
+      this.handleSelect = this.handleSelect.bind(this);
       this.filter = {
         Categorias: ["Bar","Restaurant","Boliche"]
       }
       
   }
-  
+  handleSelect(e){
+    let distancia = document.querySelector("#distancia_maxima");
+    if(e.value == 'ubicacion'){
+      distancia.style.display = 'none'; 
+    }else{
+      distancia.style.display = 'block';
+    }
+  }
 
     render() {
       return (
@@ -58,7 +64,7 @@ const optionsLugar = [
                   
                   <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
                     <label htmlFor="Lugar" className="form_text">Ubicación</label>
-                    <Select name="lugar" options = {optionsLugar} id="lugar" placeholder= 'Seleccione la ubicación'></Select>
+                    <Select name="lugar" options = {optionsLugar} id="lugar" placeholder= 'Seleccione la ubicación' onChange={this.handleSelect}></Select>
                   </div>
                   <div className="col-xs-12 col-sm-12 col-md-6 mb-3"  id="distancia_maxima" >                                
                     <label htmlFor="distancia" className="form_text">Distancia máxima</label>
