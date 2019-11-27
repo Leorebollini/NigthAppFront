@@ -102,7 +102,7 @@ class RegistroLocales extends Component {
                                 <label for="fotos_local"> Fotos del local</label>
                                 <label class="text-danger"> *</label>
                                 <input name="uploadedfile" class="form-control" id="fotos_local" type="file" />
-                                <p class="help-block">Maximo 50 MB</p>
+                                <p class="help-text">Maximo 50 MB</p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">

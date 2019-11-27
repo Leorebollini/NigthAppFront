@@ -25,22 +25,11 @@ class Registrarse extends Component {
         const value = target.type === 'checkbox' ? target.checked : target.value;
         this.setState({ [name]: value });
     }
-    /*handleChange(e) {
-        let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
-        let name = target.name;
-
-        this.setState({
-          [name]: value
-        });
-    }*/
 
     handleSubmit(e) {
         e.preventDefault();
         console.log(this.state);
     }
-    
-
     render() {
         function handleClick(e){
             e.preventDefault();
@@ -81,13 +70,14 @@ class Registrarse extends Component {
                                         <label className="form_text">Contraseña</label>
                                         <label className="text-danger"> *</label>
                                         <br></br>
-                                        <input className="form-control " type="password" name="password" onChange={this.handleInputChange}></input>
+                                        <input className="form-control check-seguridad" type="password" name="password" pattern=".{8,}" onChange={this.handleInputChange}></input>
+                                        <p class="help-text">Minimo 8 caracteres.</p>
                                 </div>
                                 <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
                                     <label className="form_text">Confirmar contraseña</label>
                                     <label className="text-danger"> *</label>
                                     <br></br>
-                                    <input className="form-control " type="password" name="confirmPassword" onChange={this.handleInputChange}></input>
+                                    <input className="form-control check-seguridad" type="password" name="confirmPassword" onChange={this.handleInputChange}/>
                                 </div>
                             </div>
                             <div className=" form-group row">
