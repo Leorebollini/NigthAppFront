@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { ENGINE_METHOD_NONE } from 'constants';
 
 class Navbar extends Component {
     render(){
@@ -23,18 +24,22 @@ class Navbar extends Component {
                                         <a href="/RegistroLocales" className="nav-link">Registrar local</a>
                                     </li>
                                 </ul>
-                                <ul className="nav navbar-nav ml-auto">
+                                <ul className="nav navbar-nav ml-auto" id="ingresar">
                                     <li className="nav-item">
                                         <a className="nav-link" data-toggle="modal" href="/iniciosesion"><span className="fas fa-user"></span>Ingresar</a>
                                     </li>
                                 </ul>
+                                <ul className="nav navbar-nav ml-auto" id="menu">
+                                    <li className="nav-item">
+                                        <a className="nav-link" data-toggle="modal" href="/menu"><img src="img/perfil.png" className="perfil" alt=""/></a>  
+                                    </li>
+                                </ul>
                             </div>
-                        </nav>   
+                        </nav> 
                     </div>
                 </div>
             </div>
         )
     }
 }
-
 export default Navbar;

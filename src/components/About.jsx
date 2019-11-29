@@ -3,7 +3,9 @@ import React, {Component} from 'react';
 class About extends Component{
     render(){
         return(
-            <h1>BOQUITA EL MÁS GRANDE PAPÁ</h1>
+            <div className="container">
+                <h1>BOQUITA EL MÁS GRANDE PAPÁ</h1>
+            </div>
         )
     }
 }

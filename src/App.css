@@ -7,9 +7,11 @@
   min-height: 120px;
   max-height: 319px;
   text-align: center;
- 
 }
-
+.perfil {
+  width: 25px; 
+  height: 25px;
+}
 .form_text{
   font-size: 20px;
 }
@@ -121,4 +123,20 @@ cursor: pointer;
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+.mostrar{
+  display: block;
+}
+.ocultar{
+  display: none;
+}
+.menu{
+  margin-top: 20px;
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+}
+.menu a:hover {
+  color: #393434; 
 }
