@@ -5,7 +5,6 @@ class About extends Component{
     render(){
         function handleClick(e){
             e.preventDefault();
-            console.log("h");
             document.querySelector("#ayuda").style.display= 'block';
         }
         return(
@@ -26,9 +25,9 @@ class About extends Component{
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit adipisci voluptate perspiciatis eveniet placeat, nisi at aperiam, voluptatibus quidem molestiae blanditiis vitae delectus in harum sequi itaque labore beatae quas!</p>
                 <h4>Perfil del local</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit adipisci voluptate perspiciatis eveniet placeat, nisi at aperiam, voluptatibus quidem molestiae blanditiis vitae delectus in harum sequi itaque labore beatae quas!</p>
-                <button type="button" onClick={handleClick}>No esta mi problema, quisiera consultar un administrador.</button>
+                <button type="button" className="btn btn-dark" onClick={handleClick}>No esta mi problema, quisiera consultar un administrador.</button>
                 <div class="form-group pt-4" id="ayuda" style={{display: 'none'}}>
-                    <label for="descripcion_local">Descripción del problema</label>
+                    <strong><label for="descripcion_local">Descripción del problema</label></strong>
                     <textarea name="descripcion" class="form-control" id="descripcion_local" maxlength="1000" placeholder="Escribe la descripción del problema aqui." cols= "50" />
                 </div>
             </div>
