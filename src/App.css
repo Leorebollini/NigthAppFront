@@ -140,3 +140,7 @@ cursor: pointer;
 .menu a:hover {
   color: #393434; 
 }
+.large-menu-classname li{
+  display: inline-block;
+  margin: 10px;
+}

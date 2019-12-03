@@ -48,13 +48,13 @@ class Registrarse extends Component {
                                         <label className="form_text">Nombre</label>
                                         <label className="text-danger"> *</label>
                                         <br></br>
-                                        <input className="form-control " type="text" ref="name" name="name" onChange={this.handleInputChange}></input>
+                                        <input className="form-control " type="text" ref="name" name="name" required pattern="[a-z]{3,15}" title="De 3 a 15 caracteres, no esta permitido mayusculas, numeros y simbolos." onChange={this.handleInputChange}></input>
                                     </div>
                                     <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
                                         <label className="form_text">Apellido</label>
                                         <label className="text-danger"> *</label>
                                         <br></br>
-                                        <input className="form-control " type="text" name="surename" onChange={this.handleInputChange}></input>
+                                        <input className="form-control " type="text" name="surename" required pattern="[a-z]{3,}" onChange={this.handleInputChange}></input>
                                     </div>   
                                 </div>
                                 <div className="form-group row">
@@ -62,7 +62,7 @@ class Registrarse extends Component {
                                         <label className="form_text">Nombre de usuario</label>
                                         <label className="text-danger"> *</label>
                                         <br></br>
-                                        <input className="form-control " type="text" name="username" onChange={this.handleInputChange}></input>
+                                        <input className="form-control " type="text" name="username" title="Letras y números. Tamaño de 5 a 20 caracteres." required pattern="[A-Za-z0-9]{5,20}" onChange={this.handleInputChange}></input>
                                     </div>   
                                 </div>
                                 <div className=" form-group row">
@@ -70,14 +70,14 @@ class Registrarse extends Component {
                                         <label className="form_text">Contraseña</label>
                                         <label className="text-danger"> *</label>
                                         <br></br>
-                                        <input className="form-control check-seguridad" type="password" name="password" pattern=".{8,}" onChange={this.handleInputChange}></input>
+                                        <input className="form-control check-seguridad" type="password" required name="password" pattern=".{10,}" onChange={this.handleInputChange}></input>
                                         <p class="help-text">Minimo 8 caracteres.</p>
                                 </div>
                                 <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
                                     <label className="form_text">Confirmar contraseña</label>
                                     <label className="text-danger"> *</label>
                                     <br></br>
-                                    <input className="form-control check-seguridad" type="password" name="confirmPassword" onChange={this.handleInputChange}/>
+                                    <input className="form-control check-seguridad" type="password" required name="confirmPassword" pattern=".{10,}" onChange={this.handleInputChange}/>
                                 </div>
                             </div>
                             <div className=" form-group row">
@@ -85,20 +85,20 @@ class Registrarse extends Component {
                                     <label className="form_text">E-mail</label>
                                     <label className="text-danger"> *</label>
                                     <br></br>
-                                    <input className="form-control " type="email" name="email" onChange={this.handleInputChange}></input>
+                                    <input className="form-control " type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" onChange={this.handleInputChange}></input>
                                 </div>
                                 <div className="col-xs-12 col-sm-12 col-md-6">
                                     <label className="form_text">Teléfono</label>
                                     <label className="text-danger"> *</label>
                                     <br></br>
-                                    <input className="form-control " type="tel" name="phone" onChange={this.handleInputChange}></input>
+                                    <input className="form-control " type="tel" name="phone" required pattern="[1-9]{6,}" onChange={this.handleInputChange}></input>
                                 </div>
                             </div>
                             <div className=" form-group row">
                                 <div className="col">
                                     <label for="Contraseña" className="form_text">Acepto los 
                                         <a href="#" target="_blank" onClick={handleClick}> términos y condiciones.</a></label>
-                                    <input type="checkbox" id="terminosycondiciones" disabled></input>
+                                    <input type="checkbox" id="terminosycondiciones" required disabled></input>
                                 </div>
                             </div>
                             <div className=" form-group  row">
