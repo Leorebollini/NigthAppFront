@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Usuario from './Usuario';
+import { getHeaders } from '../helper/HeaderUtil';
 
 class LocalP extends Component{
 
@@ -7,11 +9,21 @@ class LocalP extends Component{
         if (props.location.establecimientoId==null)
             props.location.establecimientoId= 1
         this.state = {
-            loading : true
+            loading : true,
+            Titulo:"",
+            Comentario:"",
+            Rating:5,
+            NombreUsuario:""
         }
         this.establecimiento = {}
         this.getEstablecimiento(props)
-        
+        this.publishComment = this.publishComment.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+    }
+    handleInputChange(e){
+        const target = e.target;
+        const name = target.name;
+        this.setState({ [name]: target.value });
     }
 
     getEstablecimiento(props) {
@@ -24,10 +36,27 @@ class LocalP extends Component{
             this.setState({loading:false})
           })    
       }
+      publishComment(){
+            if(Usuario.getCurrent()){
+            console.dir(this.state)
+            fetch('http://localhost:55555/app/establecimientos/'+ this.establecimiento.Id +'/comentarios', {
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify(this.state)})
+            .then((response)=>{
+                return response.json()
+            }).then((est)=>{
+                this.state.NombreUsuario = Usuario.getCurrent().Nombre
+                this.establecimiento.Comentarios.push(this.state)
+                this.setState({loading:false})
+            });
+            }else{
+                window.location="/iniciosesion"
+            }
+      }
     
 
     render(){
-        console.dir(this.state.establecimiento)
         if(this.state.loading){
             return (<div><div className="d-flex justify-content-center"><div className="loader"></div></div>
             <div className="d-flex justify-content-center"><div className="loader-text"><h4>Cargando!</h4></div></div></div>)
@@ -132,20 +161,51 @@ class LocalP extends Component{
                                 <div className="row p-2 form-group ">
                                     <div className="col">
                                         <hr></hr>
-                                        <p> Comentarios</p>
+                                        <p> Dejanos tu comentario</p>
                                         <form action="" className="comentarios">
-                                            <textarea className="form-control" name="" id="" placeholder="Comentario"></textarea>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <input type="text" class="form-control" name="Titulo" placeholder="Titulo" aria-label="Titulo" aria-describedby="basic-addon2" onChange={this.handleInputChange}/>
+                                            <textarea className="form-control" name="Comentario" id="" placeholder="Comentario" onChange={this.handleInputChange}></textarea>
                                             <br></br>
-                                            <button type="button" className="btn btn-dark form-group">Enviar</button>  
+                                            <button type="button" className="btn btn-dark form-group" onClick={this.publishComment}>Enviar</button>  
                                         </form>
                                         {this.establecimiento.Comentarios.map(comentario=>{
-                                            return (<div className="media">
+                                            /*return (<div className="media">
                                             <img src="img/avatar2.jpg" width="64" height="64"></img>
                                             <div className="media-body">
                                                 <strong className="nombre ml-2 row">  {comentario.Titulo}</strong>
+                                        <div>{comentario.NombreUsuario}</div>
                                                 <i className="comentario ml-2 row"> {comentario.Descripcion}</i>
                                             </div>
-                                        </div>)
+                                        </div>)*/
+                                        return (
+                                            <div class="card">
+	    <div class="card-body">
+	        <div class="row">
+        	    <div class="col-md-2">
+        	        <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+                    <div class="text-center">{comentario.NombreUsuario}</div>
+        	    </div>
+        	    <div class="col-md-10">
+        	        <p>
+        	            <a class="float-left" href=""><strong>{comentario.Titulo}</strong></a>
+                        {[...Array(comentario.Rating)].map(estrellas=>{
+                            return <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                        })}
+        	            
+
+        	       </p>
+        	       <div class="clearfix"></div>
+        	        <p>{comentario.Comentario}</p>
+        	    </div>
+	        </div>
+	    </div>
+	</div>
+                                        )
                                         })}
                                         
                                     </div>

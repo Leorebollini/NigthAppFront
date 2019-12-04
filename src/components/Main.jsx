@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Select from 'react-select';
 import {Link} from 'react-router-dom';
+import Usuario from './Usuario'
 
 const optionsLugar = [
     { value: 'ubicacion', label: 'Ubicación actual'},
@@ -40,10 +41,13 @@ const optionsLugar = [
       this.filter = {
         Categorias: ["Bar","Restaurant","Boliche"]
       }
+
+      console.dir(Usuario.getCurrent())
       
   }
   handleSelect(e){
     let distancia = document.querySelector("#distancia_maxima");
+    document.querySelector("#buscar").disabled = false;
     if(e.value == 'ubicacion'){
       distancia.style.display = 'none'; 
     }else{
@@ -61,14 +65,14 @@ const optionsLugar = [
               <br></br>
               <form action="consulta.html">
                 <div className="form-group row">
-                  
+      
                   <div className="col-xs-12 col-sm-12 col-md-6 mb-3">
                     <label htmlFor="Lugar" className="form_text">Ubicación</label>
-                    <Select name="lugar" options = {optionsLugar} id="lugar" placeholder= 'Seleccione la ubicación' onChange={this.handleSelect}></Select>
+                    <Select name="lugar" options = {optionsLugar} id="lugar" required placeholder= 'Seleccione la ubicación' onChange={this.handleSelect}></Select>
                   </div>
                   <div className="col-xs-12 col-sm-12 col-md-6 mb-3"  id="distancia_maxima" >                                
                     <label htmlFor="distancia" className="form_text">Distancia máxima</label>
-                    <Select name="distancia" options = {optionsDistacia} id="distancia" placeholder= 'Seleccione una distancia'></Select>
+                    <Select name="distancia" options = {optionsDistacia} required id="distancia" placeholder= 'Seleccione una distancia'></Select>
                   </div>    
                 </div>
               </form>
@@ -116,7 +120,7 @@ const optionsLugar = [
                     pathname:"/Consulta",
                     initialFilter :this.filter
                   }}>
-                    <button className="btn btn-dark" type="submit">Buscar</button>
+                    <button className="btn btn-dark" id="buscar" type="submit" disabled>Buscar</button>
                   </Link>
                 </div>
               </div>

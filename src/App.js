@@ -11,7 +11,7 @@ import Recuperar from  './components/RecuperarC.jsx'
 import LocalP from './components/LocalP.jsx';
 import UsuarioP from './components/UsuarioP.jsx';
 import Condiciones from './components/Condiciones.jsx';
-import MenuUsuario from './components/MenuUsuario';
+import MenuUsuario from './components/MenuUsuario.jsx';
 import {BrowserRouter as Router, Link, Route, Switch, NavLink} from 'react-router-dom';
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
           <Route path='/UsuarioP' component={UsuarioP}/>
           <Route path='/Condiciones' component={Condiciones}/>
           <Route path='/Recuperar' component={Recuperar}/>
-          <Route path='/menu' component={MenuUsuario}/>
+          <Route path='/MenuUsuario' component={MenuUsuario}/>
         </div>
       </Router>
     )

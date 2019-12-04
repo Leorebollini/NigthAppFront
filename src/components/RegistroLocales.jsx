@@ -72,21 +72,21 @@ class RegistroLocales extends Component {
                             <div class="form-group">
                                 <label for="nombre_local">Nombre</label>
                                 <label class="text-danger"> *</label>
-                                <input type="text" class="form-control" id="nombre_local"></input> 
+                                <input type="text" class="form-control" required id="nombre_local"></input> 
                             </div>  
                         </div>            
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="lugar">Localidad</label>
                                 <label class="text-danger"> *</label>
-                                <Select name="lugar" options = {optionlugar} className="" id="lugar" placeholder= 'Ubicación del local'></Select>
+                                <Select name="lugar" options = {optionlugar} className="" id="lugar" required placeholder= 'Ubicación del local'></Select>
                             </div> 
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="lugar">Ciudad</label>
                                 <label class="text-danger"> *</label>
-                                <Select name="lugar" options = {optionlugar} className="" id="lugar" placeholder= 'Ubicación del local'></Select>
+                                <Select name="lugar" options = {optionlugar} className="" id="lugar" required placeholder= 'Ubicación del local'></Select>
                             </div> 
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12"> 
@@ -94,22 +94,22 @@ class RegistroLocales extends Component {
                                 <label for="direccion_local">Dirección</label>
                                 <label class="text-danger"> *</label>
                                 <label for="direccion_local" class="sr-only">Ej: 123 e/ 59 y 52</label>
-                                <input type="text" class="form-control" id="direccion_local" placeholder="123 e/ 59 y 52"></input>  
+                                <input type="text" class="form-control" id="direccion_local" required placeholder="123 e/ 59 y 52"></input>  
                             </div>    
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="fotos_local"> Fotos del local</label>
                                 <label class="text-danger"> *</label>
-                                <input name="uploadedfile" class="form-control" id="fotos_local" type="file" />
-                                <p class="help-text">Maximo 50 MB</p>
+                                <input name="uploadedfile" class="form-control" required id="fotos_local" type="file" />
+                                <p class="help-block">Maximo 50 MB</p>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="descripcion_local">Descripción</label>
                                 <label class="text-danger"> *</label>
-                                <textarea name="descripcion" class="form-control" id="descripcion_local" maxlength="1000" placeholder="Escribe la descripción del local aqui." cols= "50"></textarea>
+                                <textarea name="descripcion" class="form-control" id="descripcion_local" required maxlength="1000" placeholder="Escribe la descripción del local aqui." cols= "50"></textarea>
                             </div>
                         </div>
                             <div class="form-group col-12">

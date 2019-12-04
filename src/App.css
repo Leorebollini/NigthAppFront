@@ -7,11 +7,12 @@
   min-height: 120px;
   max-height: 319px;
   text-align: center;
+ 
 }
-.perfil {
-  width: 25px; 
-  height: 25px;
+.checked {
+  color: orange;
 }
+
 .form_text{
   font-size: 20px;
 }
@@ -91,7 +92,21 @@ cursor: pointer;
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
+/* Menu */
+.menu{
+  margin-top: 20px;
+  background-color: #eee; 
+  color: black; 
+  display: block; 
+  padding: 12px; 
+}
+.menu a:hover {
+  color: #393434; 
+}
+.large-menu-classname li{
+  display: inline-block;
+  margin: 10px;
+}
 /* Estilos temporales */
 .caja_consulta {
   border: 1px solid #e0e0e0;
@@ -123,24 +138,4 @@ cursor: pointer;
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-.mostrar{
-  display: block;
-}
-.ocultar{
-  display: none;
-}
-.menu{
-  margin-top: 20px;
-  background-color: #eee; /* Grey background color */
-  color: black; /* Black text color */
-  display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
-}
-.menu a:hover {
-  color: #393434; 
-}
-.large-menu-classname li{
-  display: inline-block;
-  margin: 10px;
 }

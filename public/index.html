@@ -27,7 +27,19 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script>
+//        funcion para ocultar campo del formulario
+        function mostrar_bloque(sel) {
+          if (sel.value=="ubicacion"){
+            $("#distancia_maxima").show();
+          }else{
 
+            $("#distancia_maxima").hide();
+
+          }
+        }
+
+    </script>
     <title>React App</title>
   </head>
   <body>
