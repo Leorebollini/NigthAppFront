@@ -134,7 +134,10 @@ cursor: pointer;
 .loader-text{
   margin-top:5px;
 }
-
+.carousel-inner{ /* Desaparecen las flechas al achicar la img */
+  width: auto; 
+  height: auto;
+}
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

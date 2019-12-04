@@ -78,7 +78,7 @@ class LocalP extends Component{
                                             </ol>
                                             <div className="carousel-inner">
                                                 <div className="carousel-item active">
-                                                    <img className="d-block w-100" src="img/Floreria_atlantico01.jpg" alt="First slide"></img>
+                                                    <img className="d-block w-100" src="img/Floreria_atlantico01.jpg" width="50px"  alt="First slide"></img>
                                                 </div>
                                                 <div className="carousel-item">
                                                     <img className="d-block w-100" src="img/Floreria_atlantico02.jpg" alt="Second slide"></img>
