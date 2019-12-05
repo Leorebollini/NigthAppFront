@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Usuario from './Usuario';
+import bootstrap from "bootstrap"; // para el menu desplegable
 
 class Navbar extends Component {
     constructor(props){
@@ -49,6 +50,20 @@ class Navbar extends Component {
                                         </a>
                                     </li>
                                 </ul>
+                                <div className="dropdown">
+                                    <button
+                                        className="btn btn-primary dropdown-toggle mr-1"
+                                        data-toggle="dropdown"
+                                        type="button"
+                                    >
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="/inicio">Home</a>
+                                        <a class="dropdown-item" href="#">Mi perfil</a>
+                                        <a class="dropdown-item" href="/about">Ayuda</a>
+                                        <a class="dropdown-item" href="/inicio">Cerrar sesión</a>
+                                     </div>  
+                                </div>
                             </div>
                         </nav>   
                     </div>

@@ -24,7 +24,6 @@
   
 }
 
-
 /*--checkbox--*/
 
 .block-check {
@@ -93,20 +92,15 @@ cursor: pointer;
   transform: rotate(45deg);
 }
 /* Menu */
-.menu{
-  margin-top: 20px;
-  background-color: #eee; 
-  color: black; 
-  display: block; 
-  padding: 12px; 
+.dropdown-menu{
+  float: right;
+  background-color: #343a40!important;
+  margin-left: -250%;
 }
-.menu a:hover {
-  color: #393434; 
+.dropdown-item{
+  color: white;
 }
-.large-menu-classname li{
-  display: inline-block;
-  margin: 10px;
-}
+
 /* Estilos temporales */
 .caja_consulta {
   border: 1px solid #e0e0e0;
