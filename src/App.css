@@ -91,10 +91,10 @@ cursor: pointer;
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-/* Menu */ /*
+/* Menu */ 
 .dropdown{
   display: none;
-}*/
+}
 .dropdown-menu{
   float: right;
   background-color: #343a40!important;

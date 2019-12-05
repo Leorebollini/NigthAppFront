@@ -8,25 +8,30 @@ class Navbar extends Component {
         this.state = {
             user : null
         }
-        this.state.user = Usuario.getCurrent()
+        this.state.user = Usuario.getCurrent() 
         
     }
+    
     render(){
         let titulo = this.state.user? this.state.user.Nombre : "Ingresar"
         let goTo = this.state.user? "" : "/iniciosesion"
         let createAllowed = (this.state.user && (this.state.user.Rol=='OWNER'||this.state.user.Rol=='ADMIN')) 
+        
+        function handleClick(e){ /* Cerrar sesión */
+            sessionStorage.clear();
+        }
 
-        /* Funcion para ver o no el menu */ /* ESTA COMENTADO EL CSS DE DISPLAY NONE DEL MENU*/
-      /*  function handleChecked(e){
-            console.log(goTo);
-            let menu = document.querySelector("#menu");
-            if(titulo != "Ingresar"){
-                (podria ser un window.location.href = "/iniciosesion";)
+        /* Funcion para ver o no el menu */ 
+        function handleChecked(e){
+            console.log(createAllowed + "hola");
+            let menu = document.querySelector(".dropdown");
+            if(createAllowed != true){
                 menu.style.display = 'none'; 
+                window.location.href = "/iniciosesion";          
               }else{
                 menu.style.display = 'block';
             }
-        }*/
+        }
         return(
             <div className="Navbar">
                 <div className="row">
@@ -58,7 +63,7 @@ class Navbar extends Component {
                                 <ul className="nav navbar-nav ml-auto">
                                     <li className="nav-item">
                                         
-                                        <a className="nav-link" data-toggle="modal" href={goTo} /*onClick={handleChecked}*/><span className="fas fa-user"></span>
+                                        <a className="nav-link" data-toggle="modal" href={goTo} onClick={handleChecked}><span className="fas fa-user"></span>
         {titulo}
                                         </a>
                                     </li>
@@ -74,7 +79,7 @@ class Navbar extends Component {
                                         <a className="dropdown-item" href="/inicio">Home</a>
                                         <a className="dropdown-item" href="#">Mi perfil</a>
                                         <a className="dropdown-item" href="/about">Ayuda</a>
-                                        <a className="dropdown-item" href="/inicio">Cerrar sesión</a>
+                                        <a className="dropdown-item" href="/inicio" onClick={handleClick}>Cerrar sesión</a>
                                      </div>  
                                 </div>
                             </div>
