@@ -7,6 +7,11 @@ class About extends Component{
             e.preventDefault();
             document.querySelector("#ayuda").style.display= 'block';
         }
+        function handleCheck(e){
+            e.preventDefault();
+            alert("Problema enviado");
+            window.location.href = "/inicio";
+        }
         return(
             <div className="container">
                 <h1>Ayuda</h1>
@@ -26,12 +31,16 @@ class About extends Component{
                 <h4>Perfil del local</h4>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit adipisci voluptate perspiciatis eveniet placeat, nisi at aperiam, voluptatibus quidem molestiae blanditiis vitae delectus in harum sequi itaque labore beatae quas!</p>
                 <button type="button" className="btn btn-dark" onClick={handleClick}>No esta mi problema, quisiera consultar un administrador.</button>
-                    <div class="form-group pt-4" id="ayuda" style={{display: 'none'}}>
-                        <label className="form_text">E-mail</label>
-                        <br></br>
-                        <input className="form-control col-md-5" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"></input>
-                        <label className="form_text" for="descripcion_local">Descripción del problema</label>
-                        <textarea name="descripcion" class="form-control" id="descripcion_local" maxlength="1000" placeholder="Escribe la descripción del problema aqui." cols= "50" />   
+                    <div className="form-group pt-4" id="ayuda" style={{display: 'none'}}>
+                        <form>
+                            <label className="form_text">E-mail</label>
+                            <br></br>
+                            <input className="form-control col-md-5" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"></input>
+                            <label className="form_text" for="descripcion_local">Descripción del problema</label>
+                            <textarea name="descripcion" className="form-control" id="descripcion_local" required maxLength="1000" placeholder="Escribe la descripción del problema aqui." cols= "50" />   
+                            <br></br>
+                            <button className="btn btn-dark" type="submit" onClick={handleCheck}>Enviar problema</button>
+                        </form>
                     </div>
             </div>
         )

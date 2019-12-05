@@ -9,11 +9,24 @@ class Navbar extends Component {
             user : null
         }
         this.state.user = Usuario.getCurrent()
+        
     }
     render(){
         let titulo = this.state.user? this.state.user.Nombre : "Ingresar"
         let goTo = this.state.user? "" : "/iniciosesion"
         let createAllowed = (this.state.user && (this.state.user.Rol=='OWNER'||this.state.user.Rol=='ADMIN')) 
+
+        /* Funcion para ver o no el menu */ /* ESTA COMENTADO EL CSS DE DISPLAY NONE DEL MENU*/
+      /*  function handleChecked(e){
+            console.log(goTo);
+            let menu = document.querySelector("#menu");
+            if(titulo != "Ingresar"){
+                (podria ser un window.location.href = "/iniciosesion";)
+                menu.style.display = 'none'; 
+              }else{
+                menu.style.display = 'block';
+            }
+        }*/
         return(
             <div className="Navbar">
                 <div className="row">
@@ -45,23 +58,23 @@ class Navbar extends Component {
                                 <ul className="nav navbar-nav ml-auto">
                                     <li className="nav-item">
                                         
-                                        <a className="nav-link" data-toggle="modal" href={goTo}><span className="fas fa-user"></span>
+                                        <a className="nav-link" data-toggle="modal" href={goTo} /*onClick={handleChecked}*/><span className="fas fa-user"></span>
         {titulo}
                                         </a>
                                     </li>
                                 </ul>
-                                <div className="dropdown">
+                                <div className="dropdown" id="menu">
                                     <button
                                         className="btn btn-primary dropdown-toggle mr-1"
                                         data-toggle="dropdown"
                                         type="button"
                                     >
                                     </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="/inicio">Home</a>
-                                        <a class="dropdown-item" href="#">Mi perfil</a>
-                                        <a class="dropdown-item" href="/about">Ayuda</a>
-                                        <a class="dropdown-item" href="/inicio">Cerrar sesión</a>
+                                    <div className="dropdown-menu">
+                                        <a className="dropdown-item" href="/inicio">Home</a>
+                                        <a className="dropdown-item" href="#">Mi perfil</a>
+                                        <a className="dropdown-item" href="/about">Ayuda</a>
+                                        <a className="dropdown-item" href="/inicio">Cerrar sesión</a>
                                      </div>  
                                 </div>
                             </div>
